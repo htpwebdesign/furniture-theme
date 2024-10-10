@@ -50,6 +50,7 @@ function furniture_theme_setup() {
 	register_nav_menus(
 		array(
 			'menu-1' => esc_html__( 'Primary', 'furniture-theme' ),
+			'footer-menu' => esc_html__( 'Footer - Nav', 'furniture-theme'),
 		)
 	);
 
