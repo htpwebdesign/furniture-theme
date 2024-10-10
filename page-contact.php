@@ -52,6 +52,6 @@ get_header();
                 <?php echo do_shortcode('[gravityform id="1" title="true"]'); ?>
             </section>
 </main>
-<?php endwhile; ?>
-<?php
+<?php endwhile;
+
 get_footer();

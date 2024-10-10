@@ -50,7 +50,8 @@ function furniture_theme_setup() {
 	register_nav_menus(
 		array(
 			'menu-1' => esc_html__( 'Primary', 'furniture-theme' ),
-			'footer-menu' => esc_html__( 'Footer - Nav', 'furniture-theme'),
+			'footer-left' => esc_html__( 'Footer - Left', 'furniture-theme'),
+			'footer-right' => esc_html__( 'Footer - Right', 'furniture-theme'),
 		)
 	);
 
@@ -77,7 +78,7 @@ function furniture_theme_setup() {
 		apply_filters(
 			'furniture_theme_custom_background_args',
 			array(
-				'default-color' => 'ffffff',
+				'default-color' => 'fafafa',
 				'default-image' => '',
 			)
 		)
@@ -139,6 +140,19 @@ add_action( 'widgets_init', 'furniture_theme_widgets_init' );
  * Enqueue scripts and styles.
  */
 function furniture_theme_scripts() {
+
+
+//bringing in Quattrocento googlefont
+
+	wp_enqueue_style( 
+		'furniture-theme-googlefonts', //unique handle
+		'https://fonts.googleapis.com/css2?family=Quattrocento+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap', //url to the css file (it is a css file even though it doesnt end in .css)
+		array(), // dependencies, googlefonts dont have any
+		null // version number for googlefonts, always set to null for googlefonts or it breaks
+			// there's a 5th one you can set for screen size, print, etc. but we don't need to use it.
+		);
+
+
 	wp_enqueue_style( 'furniture-theme-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'furniture-theme-style', 'rtl', 'replace' );
 
