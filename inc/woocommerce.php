@@ -225,3 +225,5 @@ if ( ! function_exists( 'furniture_theme_woocommerce_header_cart' ) ) {
 		<?php
 	}
 }
+
+// ADD CUSTOM WOOCOMMERCE CODE DOWN HERE---------------------------------------------------------->
