@@ -17,7 +17,7 @@ get_header();
         <?php if (function_exists('the_field')): ?>
             <section class="contact-page">
                 <div class="contact-info">
-                    <h2>Company Contact Information</h2>
+                    <h1><?php the_title(); ?></h1>
                     <div class="contact-details">
                         <?php if (get_field('address')): ?>
                             <p><?php the_field('address'); ?></p>
@@ -55,4 +55,3 @@ get_header();
 <?php endwhile; ?>
 <?php
 get_footer();
-?>
