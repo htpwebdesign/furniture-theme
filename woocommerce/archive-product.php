@@ -74,7 +74,7 @@ if (woocommerce_product_loop()) {
 		$terms = get_terms(
 			array(
 				'taxonomy' => 'product_cat',
-				'hide_empty' => false,
+				'hide_empty' => true,
 			)
 		);
 
