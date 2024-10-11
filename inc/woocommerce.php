@@ -227,3 +227,12 @@ if ( ! function_exists( 'furniture_theme_woocommerce_header_cart' ) ) {
 }
 
 // ADD CUSTOM WOOCOMMERCE CODE DOWN HERE---------------------------------------------------------->
+
+// making sure sidebar isn't displaying on shop, product, pages, etc.
+
+remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10);
+
+// getting rid of the product count, and product sorting by price, popularity, etc. 
+
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30);
