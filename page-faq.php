@@ -16,32 +16,30 @@ get_header();
 	<?php
 	while (have_posts()) : the_post();
 
-		//since ACF 6.25 wp_kses is used on get_field/sub_field so no escaping needed.
+		// Check both function and rows exists.
+		if ( function_exists('have_rows')):
+			if ( have_rows('faq') ): 
 
-		// Check rows exists.
-		if( have_rows('faq') ): 
-
-				// Loop through rows.
-				while( have_rows('faq') ) : the_row(); 
-					if ( function_exists( 'get_sub_field' ) ) {
-						$heading = get_sub_field('heading');
-						$content = get_sub_field('content');
+				// Since ACF 6.25 wp_kses is used on the_field/the_sub_field so no escaping needed.
+					// Loop through rows.
+					while ( have_rows('faq') ) : the_row(); 
+						if ( function_exists( 'get_sub_field' ) ) {
 						
-						if ( $heading && $content ) { ?>
-						<article class="accordion-wrapper">
-							<button class="accordion"><?php echo esc_html( $heading ); ?></button>
-							<div class="accordion-content">
-								<p><?php echo esc_html( $content ); ?></p>
-							</div>
-						</article>
-						<?php }
-					}
-				endwhile;
-		
-		//end if
+							if ( get_sub_field('heading') && get_sub_field('content')  ) { ?>
+							<article class="accordion-wrapper">
+								<button class="accordion"><?php the_sub_field('heading'); ?></button>
+								<div class="accordion-content">
+									<p><?php the_sub_field('content'); ?></p>
+								</div>
+							</article>
+							<?php }
+						}
+					endwhile;
+			//end ifs
+			endif;
 		endif;
 	endwhile; // End of the loop.
-						?>
+	?>
 
 </main><!-- #main -->
 
