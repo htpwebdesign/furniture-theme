@@ -78,7 +78,7 @@ function furniture_theme_setup() {
 		apply_filters(
 			'furniture_theme_custom_background_args',
 			array(
-				'default-color' => 'fafafa',
+				'default-color' => '#fafafa',
 				'default-image' => '',
 			)
 		)
@@ -152,16 +152,35 @@ function furniture_theme_scripts() {
 			// there's a 5th one you can set for screen size, print, etc. but we don't need to use it.
 		);
 
+	//enqueuing JS for accordion on faq page
+
+	wp_enqueue_script(
+		'furniture-theme-accordion',
+		get_template_directory_uri() . '/js/accordion.js',
+		array(), _S_VERSION,
+		array( 'strategy' => 'defer' ) );
+
+
 
 	wp_enqueue_style( 'furniture-theme-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'furniture-theme-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'furniture-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
+
+
+
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+
+
+
+
 }
+
+
 add_action( 'wp_enqueue_scripts', 'furniture_theme_scripts' );
 
 /**
@@ -197,13 +216,3 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
-
-function register_footer_menus() {
-    register_nav_menus(
-        array(
-            'footer_left'  => __( 'Footer Left' ),
-            'footer_right' => __( 'Footer Right' ),
-        )
-    );
-}
-add_action( 'init', 'register_footer_menus' );
