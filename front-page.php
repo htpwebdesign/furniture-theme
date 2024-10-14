@@ -32,6 +32,22 @@ get_header();
                 <?php endif; ?>
             </section>
 
+            <!-- Featured In Section -->
+             <aside class="featured-in-section">
+                <?php $featured_in_gallery = get_field('featured_in_gallery'); ?>
+                <?php if ($featured_in_gallery): ?>
+                    <div class="gallery">
+                        <?php foreach ($featured_in_gallery as $feature_image_id): ?>
+                            <article class="gallery-item">
+                               <?php echo wp_get_attachment_image($feature_image_id, 'full'); ?>
+                            </article>
+                        <?php endforeach; ?>
+                    </div>
+                <?php else: ?>
+                    <p>No image in the gallery.</p>
+                <?php endif; ?>
+                </aside>
+
             <!-- Home Gallery Section -->
             <section class="home-gallery">
                 <h1><?php echo esc_html(get_field('company_name') ); ?></h1>
@@ -51,21 +67,6 @@ get_header();
                 <?php endif; ?>
             </section>
 
-            <!-- Featured In Section -->
-             <section class="featured-in-section">
-                <?php $featured_in_gallery = get_field('featured_in_gallery'); ?>
-                <?php if ($featured_in_gallery): ?>
-                    <div class="gallery">
-                        <?php foreach ($featured_in_gallery as $feature_image_id): ?>
-                            <article class="gallery-item">
-                               <?php echo wp_get_attachment_image($feature_image_id, 'full'); ?>
-                            </article>
-                        <?php endforeach; ?>
-                    </div>
-                <?php else: ?>
-                    <p>No image in the gallery.</p>
-                <?php endif; ?>
-             </section>
 
             <!-- Collections Section -->
             <section class="collections-section">
