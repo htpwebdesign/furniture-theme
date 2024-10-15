@@ -30,6 +30,22 @@ get_header();
                     }
                     ?>
                 <?php endif; ?>
+
+            <!-- Collections CTA -->
+                <?php if (get_field('collections_call_to_action')): ?>    
+                    <?php
+                    $link_collections = get_field('collections_call_to_action');
+
+                    if ($link_collections):
+                        $link_collections_url = $link_collections['url'];
+                        $link_collections_title = $link_collections['title'];
+                        $link_collections_target = $link_collections['target'] ? $link_collections['target'] : '_self';
+                        ?>
+                        <a class="button" href="<?php echo esc_url($link_collections_url); ?>" target="<?php echo esc_attr($link_collections_target); ?>">
+                            <?php echo esc_html($link_collections_title); ?>
+                        </a>
+                    <?php endif; ?>
+                <?php endif; ?>
             </section>
 
             <!-- Home Gallery Section -->
@@ -46,6 +62,23 @@ get_header();
                             </article>
                         <?php endforeach; ?>
                     </div>
+                <?php endif; ?>
+
+                            <!-- Get a Quote CTA -->
+                <h2>Have a custom project in mind?</h2>
+                <?php if (get_field('request_quote_call_to_action')): ?>    
+                    <?php
+                    $request_quote = get_field('request_quote_call_to_action');
+
+                    if ($request_quote):
+                        $request_quote_url = $request_quote['url'];
+                        $request_quote_title = $request_quote['title'];
+                        $request_quote_target = $request_quote['target'] ? $request_quote['target'] : '_self';
+                        ?>
+                        <a class="button" href="<?php echo esc_url($request_quote_url); ?>" target="<?php echo esc_attr($request_quote_target); ?>">
+                            Request a quote
+                        </a>
+                    <?php endif; ?>
                 <?php endif; ?>
             </section>
 
@@ -94,46 +127,6 @@ get_header();
 				<?php endforeach; ?>
 			</section>
 		<?php endif; ?>
-
-
-
-
-            <!-- Collections Section -->
-            <section class="collections-section">
-                <?php if (get_field('collections_call_to_action')): ?>    
-                    <?php
-                    $link_collections = get_field('collections_call_to_action');
-
-                    if ($link_collections):
-                        $link_collections_url = $link_collections['url'];
-                        $link_collections_title = $link_collections['title'];
-                        $link_collections_target = $link_collections['target'] ? $link_collections['target'] : '_self';
-                        ?>
-                        <a class="button" href="<?php echo esc_url($link_collections_url); ?>" target="<?php echo esc_attr($link_collections_target); ?>">
-                            <?php echo esc_html($link_collections_title); ?>
-                        </a>
-                    <?php endif; ?>
-                <?php endif; ?>
-            </section>
-
-            <!-- Get a Quote Section -->
-            <section class="quote-section">
-                <h2>Have a custom project in mind?</h2>
-                <?php if (get_field('request_quote_call_to_action')): ?>    
-                    <?php
-                    $request_quote = get_field('request_quote_call_to_action');
-
-                    if ($request_quote):
-                        $request_quote_url = $request_quote['url'];
-                        $request_quote_title = $request_quote['title'];
-                        $request_quote_target = $request_quote['target'] ? $request_quote['target'] : '_self';
-                        ?>
-                        <a class="button" href="<?php echo esc_url($request_quote_url); ?>" target="<?php echo esc_attr($request_quote_target); ?>">
-                            Request a quote
-                        </a>
-                    <?php endif; ?>
-                <?php endif; ?>
-            </section>
 
         <?php endif; ?>
         
