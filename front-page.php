@@ -32,7 +32,7 @@ get_header();
                 <?php endif; ?>
             </section>
 
-            <!-- Featured In Section -->
+        <!-- Featured In Section -->
              <aside class="featured-in-section">
                 <?php $featured_in_gallery = get_field('featured_in_gallery'); ?>
                 <?php if ($featured_in_gallery): ?>
@@ -47,6 +47,39 @@ get_header();
                     <p>No image in the gallery.</p>
                 <?php endif; ?>
                 </aside>
+
+            <!-- Explore our Collections Section-->
+        <?php
+                $terms = get_terms(
+			array(
+				'taxonomy' => 'product_cat',
+				'hide_empty' => true,
+			)
+		);
+
+		//only run if there are terms and isn't an error is_wp_error
+		if ($terms && ! is_wp_error($terms)) : ?>
+			<section class="collections-page">
+				<h2>Explore our Collections</h2>
+				<?php foreach ($terms as $term) : ?>
+
+					<article class="single-collection-container">
+						<!-- here we can pass the entire $term object into this function and it knows what to do to get our link -->
+						<a href="<?php echo get_term_link($term); ?>">
+							<!-- here were getting the name out of the $term object to display as the text displayed by the A tag -->
+							<?php echo esc_html($term->name);
+
+
+							$thumbnail_id = get_term_meta($term->term_id, 'thumbnail_id', true);
+							if ($thumbnail_id) {
+								echo wp_get_attachment_image($thumbnail_id, 'full');
+							} ?>
+						</a>
+					</article>
+				<?php endforeach; ?>
+			</section>
+		<?php endif; ?>
+
 
             <!-- Home Gallery Section -->
             <section class="home-gallery">
@@ -86,7 +119,7 @@ get_header();
                 <?php endif; ?>
             </section>
 
-            <!-- Quote Section -->
+            <!-- Get a Quote Section -->
             <section class="quote-section">
                 <h1>Have a custom project in mind?</h1>
                 <?php if (get_field('request_quote_call_to_action')): ?>    
