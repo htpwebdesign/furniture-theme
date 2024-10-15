@@ -32,6 +32,23 @@ get_header();
                 <?php endif; ?>
             </section>
 
+            <!-- Home Gallery Section -->
+            <section class="home-gallery">
+                <h1><?php echo esc_html(get_field('company_name') ); ?></h1>
+                <p><?php echo esc_html(get_field('company_intro') ); ?></p>
+            
+                <?php $home_page_gallery = get_field('home_page_gallery'); ?>
+                <?php if ($home_page_gallery): ?>
+                    <div class="gallery">
+                        <?php foreach ($home_page_gallery as $each_image_id): ?>
+                            <article class="gallery-item">
+                                <?php echo wp_get_attachment_image($each_image_id, 'full'); ?>
+                            </article>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
+            </section>
+
         <!-- Featured In Section -->
              <aside class="featured-in-section">
                 <?php $featured_in_gallery = get_field('featured_in_gallery'); ?>
@@ -43,8 +60,6 @@ get_header();
                             </article>
                         <?php endforeach; ?>
                     </div>
-                <?php else: ?>
-                    <p>No image in the gallery.</p>
                 <?php endif; ?>
                 </aside>
 
@@ -81,24 +96,6 @@ get_header();
 		<?php endif; ?>
 
 
-            <!-- Home Gallery Section -->
-            <section class="home-gallery">
-                <h1><?php echo esc_html(get_field('company_name') ); ?></h1>
-                <p><?php echo esc_html(get_field('company_intro') ); ?></p>
-
-                <?php $home_page_gallery = get_field('home_page_gallery'); ?>
-                <?php if ($home_page_gallery): ?>
-                    <div class="gallery">
-                        <?php foreach ($home_page_gallery as $each_image): ?>
-                            <article class="gallery-item">
-                                <img src="<?php echo esc_url($each_image['url']); ?>" alt="<?php echo esc_attr($each_image['alt']); ?>">
-                            </article>
-                        <?php endforeach; ?>
-                    </div>
-                <?php else: ?>
-                    <p>No image in the gallery.</p>
-                <?php endif; ?>
-            </section>
 
 
             <!-- Collections Section -->
@@ -121,7 +118,7 @@ get_header();
 
             <!-- Get a Quote Section -->
             <section class="quote-section">
-                <h1>Have a custom project in mind?</h1>
+                <h2>Have a custom project in mind?</h2>
                 <?php if (get_field('request_quote_call_to_action')): ?>    
                     <?php
                     $request_quote = get_field('request_quote_call_to_action');
