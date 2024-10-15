@@ -31,7 +31,7 @@ get_header();
                     ?>
                 <?php endif; ?>
             </section>
-            
+
             <!-- Home Gallery Section -->
             <section class="home-gallery">
                 <h1><?php echo esc_html(get_field('company_name') ); ?></h1>
@@ -40,14 +40,12 @@ get_header();
                 <?php $home_page_gallery = get_field('home_page_gallery'); ?>
                 <?php if ($home_page_gallery): ?>
                     <div class="gallery">
-                        <?php foreach ($home_page_gallery as $each_image): ?>
+                        <?php foreach ($home_page_gallery as $each_image_id): ?>
                             <article class="gallery-item">
-                                <img src="<?php echo esc_url($each_image['url']); ?>" alt="<?php echo esc_attr($each_image['alt']); ?>">
+                                <?php echo wp_get_attachment_image($each_image_id, 'full'); ?>
                             </article>
                         <?php endforeach; ?>
                     </div>
-                <?php else: ?>
-                    <p>No image in the gallery.</p>
                 <?php endif; ?>
             </section>
 
