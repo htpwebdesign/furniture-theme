@@ -30,6 +30,26 @@ get_header();
                     }
                     ?>
                 <?php endif; ?>
+
+                <!-- title and about -->
+                <h1><?php echo esc_html(get_field('company_name') ); ?></h1>
+                <p><?php echo esc_html(get_field('company_intro') ); ?></p>
+
+            <!-- Collections CTA -->
+                <?php if (get_field('collections_call_to_action')): ?>    
+                    <?php
+                    $link_collections = get_field('collections_call_to_action');
+
+                    if ($link_collections):
+                        $link_collections_url = $link_collections['url'];
+                        $link_collections_title = $link_collections['title'];
+                        $link_collections_target = $link_collections['target'] ? $link_collections['target'] : '_self';
+                        ?>
+                        <a class="button" href="<?php echo esc_url($link_collections_url); ?>" target="<?php echo esc_attr($link_collections_target); ?>">
+                            <?php echo esc_html($link_collections_title); ?>
+                        </a>
+                    <?php endif; ?>
+                <?php endif; ?>
             </section>
 
         <!-- Featured In Section -->
@@ -43,8 +63,6 @@ get_header();
                             </article>
                         <?php endforeach; ?>
                     </div>
-                <?php else: ?>
-                    <p>No image in the gallery.</p>
                 <?php endif; ?>
                 </aside>
 
@@ -80,48 +98,22 @@ get_header();
 			</section>
 		<?php endif; ?>
 
-
-            <!-- Home Gallery Section -->
+          <!-- Home Gallery Section -->
             <section class="home-gallery">
-                <h1><?php echo esc_html(get_field('company_name') ); ?></h1>
-                <p><?php echo esc_html(get_field('company_intro') ); ?></p>
-
+            
                 <?php $home_page_gallery = get_field('home_page_gallery'); ?>
                 <?php if ($home_page_gallery): ?>
                     <div class="gallery">
-                        <?php foreach ($home_page_gallery as $each_image): ?>
+                        <?php foreach ($home_page_gallery as $each_image_id): ?>
                             <article class="gallery-item">
-                                <img src="<?php echo esc_url($each_image['url']); ?>" alt="<?php echo esc_attr($each_image['alt']); ?>">
+                                <?php echo wp_get_attachment_image($each_image_id, 'full'); ?>
                             </article>
                         <?php endforeach; ?>
                     </div>
-                <?php else: ?>
-                    <p>No image in the gallery.</p>
                 <?php endif; ?>
-            </section>
 
-
-            <!-- Collections Section -->
-            <section class="collections-section">
-                <?php if (get_field('collections_call_to_action')): ?>    
-                    <?php
-                    $link_collections = get_field('collections_call_to_action');
-
-                    if ($link_collections):
-                        $link_collections_url = $link_collections['url'];
-                        $link_collections_title = $link_collections['title'];
-                        $link_collections_target = $link_collections['target'] ? $link_collections['target'] : '_self';
-                        ?>
-                        <a class="button" href="<?php echo esc_url($link_collections_url); ?>" target="<?php echo esc_attr($link_collections_target); ?>">
-                            <?php echo esc_html($link_collections_title); ?>
-                        </a>
-                    <?php endif; ?>
-                <?php endif; ?>
-            </section>
-
-            <!-- Get a Quote Section -->
-            <section class="quote-section">
-                <h1>Have a custom project in mind?</h1>
+                            <!-- Get a Quote CTA -->
+                <h2>Have a custom project in mind?</h2>
                 <?php if (get_field('request_quote_call_to_action')): ?>    
                     <?php
                     $request_quote = get_field('request_quote_call_to_action');
