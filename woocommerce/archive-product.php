@@ -96,12 +96,8 @@ if (woocommerce_product_loop()) {
 								echo wp_get_attachment_image($thumbnail_id, 'full');
 							} ?>
 						</a>
-
-
 					</article>
-
 				<?php endforeach; ?>
-				</ul>
 			</section>
 		<?php endif; ?>
 
