@@ -29,48 +29,10 @@ get_header();
 							}
 					?>
 				<?php endif; ?>
-				<?php if (get_field('about_the_company')): ?>	
+				<?php if (get_field('about_fields')): ?>	
 					<?php
-						if(have_rows('about_the_company')):
-							while(have_rows('about_the_company')) : the_row();
-								$heading_value = get_sub_field('heading'); ?>
-								<h2><?php echo esc_attr($heading_value); ?></h2>
-								<?php
-								$content_value = get_sub_field('content'); ?>
-								<p><?php echo esc_attr($content_value); ?></p>
-								<?php
-								$image_value = get_sub_field('image'); 
-								$size = 'full';
-								if($image){
-									echo wp_get_attachment_image($image_value,$size);
-								}
-							endwhile;
-						endif;
-					?>
-				<?php endif; ?>
-				<?php if (get_field('about_the_design_process')): ?>	
-					<?php
-						if(have_rows('about_the_design_process')):
-							while(have_rows('about_the_design_process')) : the_row();
-								$heading_value = get_sub_field('heading'); ?>
-								<h2><?php echo esc_attr($heading_value); ?></h2>
-								<?php
-								$content_value = get_sub_field('content'); ?>
-								<p><?php echo esc_attr($content_value); ?></p>
-								<?php
-								$image_value = get_sub_field('image'); 
-								$size = 'full';
-								if($image){
-									echo wp_get_attachment_image($image_value,$size);
-								}
-							endwhile;
-						endif;
-					?>
-				<?php endif; ?>
-				<?php if (get_field('about_the_production_process')): ?>
-					<?php
-						if(have_rows('about_the_production_process')):
-							while(have_rows('about_the_production_process')) : the_row();
+						if(have_rows('about_fields')):
+							while(have_rows('about_fields')) : the_row();
 								$heading_value = get_sub_field('heading'); ?>
 								<h2><?php echo esc_attr($heading_value); ?></h2>
 								<?php
