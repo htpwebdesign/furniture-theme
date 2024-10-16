@@ -75,7 +75,6 @@ get_header();
 			)
 		);
 
-		//only run if there are terms and isn't an error is_wp_error
 		if ($terms && ! is_wp_error($terms)) : ?>
 			<section class="collections-page">
 				<h2>Explore our Collections</h2>
@@ -83,12 +82,12 @@ get_header();
 
 					<article class="single-collection-container">
 						<!-- here we can pass the entire $term object into this function and it knows what to do to get our link -->
-						<a href="<?php echo get_term_link($term); ?>">
+						<span><a href="<?php echo get_term_link($term); ?>">
 							<!-- here were getting the name out of the $term object to display as the text displayed by the A tag -->
-							<?php echo esc_html($term->name);
+							<?php echo esc_html($term->name);?></span>
 
 
-							$thumbnail_id = get_term_meta($term->term_id, 'thumbnail_id', true);
+							<?php $thumbnail_id = get_term_meta($term->term_id, 'thumbnail_id', true);
 							if ($thumbnail_id) {
 								echo wp_get_attachment_image($thumbnail_id, 'full');
 							} ?>
@@ -97,6 +96,7 @@ get_header();
 				<?php endforeach; ?>
 			</section>
 		<?php endif; ?>
+
 
           <!-- Home Gallery Section -->
             <section class="home-gallery">
