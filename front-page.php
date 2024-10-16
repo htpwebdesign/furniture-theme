@@ -87,9 +87,9 @@ get_header();
 
 					<article class="single-collection-container">
 						<!-- here we can pass the entire $term object into this function and it knows what to do to get our link -->
-						<span><a href="<?php echo get_term_link($term); ?>">
+						<a href="<?php echo get_term_link($term); ?>">
 							<!-- here were getting the name out of the $term object to display as the text displayed by the A tag -->
-							<?php echo esc_html($term->name);?></span>
+							<h3><?php echo esc_html($term->name);?></h3>
 
 
 							<?php $thumbnail_id = get_term_meta($term->term_id, 'thumbnail_id', true);
