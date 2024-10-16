@@ -24,7 +24,7 @@ get_header();
                         <?php endif; ?>
 
                         <?php if (get_field('phone_number', 'option')): ?>
-                            <p>Phone: <?php the_field('phone_number', 'option'); ?></p>
+                          <p>Phone: <a href=<?php the_field('phone_number', 'option'); ?>><?php the_field('phone_number', 'option'); ?></a></p> 
                         <?php endif; ?>
 
                         <?php if (get_field('email', 'option')): ?>

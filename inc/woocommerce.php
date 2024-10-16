@@ -20,8 +20,8 @@ function furniture_theme_woocommerce_setup() {
 	add_theme_support(
 		'woocommerce',
 		array(
-			'thumbnail_image_width' => 300,
-			'single_image_width'    => 600,
+			'thumbnail_image_width' => 'full',
+			'single_image_width'    => 'full',
 			'product_grid'          => array(
 				'default_rows'    => 3,
 				'min_rows'        => 1,
