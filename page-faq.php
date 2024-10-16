@@ -34,7 +34,7 @@ get_header();
 							<article class="accordion-wrapper">
 								<button class="accordion"><?php the_sub_field('heading'); ?></button>
 								<div class="accordion-content">
-									<p><?php the_sub_field('content'); ?></p>
+									<?php the_sub_field('content'); ?>
 								</div>
 							</article>
 							<?php }
