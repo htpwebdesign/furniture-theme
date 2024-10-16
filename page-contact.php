@@ -16,8 +16,10 @@ get_header();
 
         <?php if (function_exists('the_field')): ?>
             <section class="contact-page">
+                <h1><?php the_title(); ?></h1>
+                <?php if (get_field('banner_image', 'option')): ?>
+
                 <div class="contact-info">
-                    <h1><?php the_title(); ?></h1>
                     <div class="contact-details">
                         <?php if (get_field('physical_address', 'option')): ?>
                             <p><?php the_field('physical_address', 'option'); ?></p>
