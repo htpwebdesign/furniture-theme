@@ -14,8 +14,13 @@ get_header();
 <main id="primary" class="site-main">
 
 	<?php
-	while (have_posts()) : the_post();
+	while (have_posts()) : the_post(); ?>
 
+		<header class="hero-banner faq-banner">
+			<h1><?php the_title(); ?></h1>
+		</header>
+		
+		<?php
 		// Check both function and rows exists.
 		if ( function_exists('have_rows')):
 			if ( have_rows('faq') ): 
@@ -29,7 +34,7 @@ get_header();
 							<article class="accordion-wrapper">
 								<button class="accordion"><?php the_sub_field('heading'); ?></button>
 								<div class="accordion-content">
-									<p><?php the_sub_field('content'); ?></p>
+									<?php the_sub_field('content'); ?>
 								</div>
 							</article>
 							<?php }

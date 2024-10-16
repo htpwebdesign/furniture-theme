@@ -15,7 +15,7 @@
     <!-- First Section: Customer Care and Company -->
     <div class="footer-container" >
         <!-- Customer Care Section -->
-        <div class="footer-column" >
+        <nav class="footer-column" >
             <h3>Customer Care</h3>
             <?php
             wp_nav_menu( array(
@@ -25,10 +25,10 @@
                 'fallback_cb'    => false,
             ) );
             ?>
-        </div>
+        </nav>
 
         <!-- Company Section -->
-        <div class="footer-column" >
+        <nav class="footer-column" >
             <h3>Company</h3>
             <?php
             wp_nav_menu( array(
@@ -38,7 +38,7 @@
                 'fallback_cb'    => false,
             ) );
             ?>
-        </div>
+        </nav>
     </div>
 
     <?php if (function_exists('the_field')): ?>
@@ -53,14 +53,14 @@
                     <a href="mailto:<?php the_field('email', 'option'); ?>"><?php the_field('email', 'option'); ?></a>
                 <?php endif; ?>
                 <?php if (get_field('phone_number', 'option')): ?>
-                    <a href=<?php the_field('phone_number', 'option'); ?>><?php the_field('phone_number', 'option'); ?></a>
+                    <a href=tel:+<?php the_field('phone_number', 'option'); ?>><?php the_field('phone_number', 'option'); ?></a>
                 <?php endif; ?>
         </div>
     <?php endif; ?>
     <!-- Third Section: Copyright -->
     <div class="footer-bottom">
         <?php if (get_field('store_name', 'option')): ?>
-            © <?php echo date('Y');?> <?php the_field('store_name', 'option'); ?> | All Rights Reserved
+            <p>© 2024 <?php the_field('store_name', 'option'); ?> | All Rights Reserved </p>
         <?php endif; ?>
     </div>
 </footer>

@@ -51,24 +51,25 @@ if (woocommerce_product_loop()) {
 	 */
 	do_action('woocommerce_before_shop_loop');
 
-	woocommerce_product_loop_start();
-
+	
 	// custom code for shop page start here 
-
+	
 	if (is_tax()) {
+		woocommerce_product_loop_start();
+		
+			if (wc_get_loop_prop('total')) {
+				while (have_posts()) {
+					the_post();
 
-		if (wc_get_loop_prop('total')) {
-			while (have_posts()) {
-				the_post();
+					/**
+					 * Hook: woocommerce_shop_loop.
+					 */
+					do_action('woocommerce_shop_loop');
 
-				/**
-				 * Hook: woocommerce_shop_loop.
-				 */
-				do_action('woocommerce_shop_loop');
-
-				wc_get_template_part('content', 'product');
+					wc_get_template_part('content', 'product');
+				}
 			}
-		}
+			woocommerce_product_loop_end();
 	} else {
 
 		$terms = get_terms(
@@ -86,12 +87,12 @@ if (woocommerce_product_loop()) {
 
 					<article class="single-collection-container">
 						<!-- here we can pass the entire $term object into this function and it knows what to do to get our link -->
-						<a href="<?php echo get_term_link($term); ?>">
+						<span><a href="<?php echo get_term_link($term); ?>">
 							<!-- here were getting the name out of the $term object to display as the text displayed by the A tag -->
-							<?php echo esc_html($term->name);
+							<?php echo esc_html($term->name);?></span>
 
 
-							$thumbnail_id = get_term_meta($term->term_id, 'thumbnail_id', true);
+							<?php $thumbnail_id = get_term_meta($term->term_id, 'thumbnail_id', true);
 							if ($thumbnail_id) {
 								echo wp_get_attachment_image($thumbnail_id, 'full');
 							} ?>
@@ -105,7 +106,6 @@ if (woocommerce_product_loop()) {
 <?php }
 
 
-	woocommerce_product_loop_end();
 
 	/**
 	 * Hook: woocommerce_after_shop_loop.

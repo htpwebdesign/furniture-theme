@@ -15,12 +15,10 @@ get_header();
 
     <?php while ( have_posts() ) : the_post(); ?>
 
-        <h1><?php the_title(); ?></h1>
-
         <?php if (function_exists('the_field')): ?>
 
             <!-- Hero Banner Section -->
-            <section class="hero-banner">
+            <header class="hero-banner home-banner">
                 <?php if (get_field('hero_banner')): ?>    
                     <?php 
                     $image = get_field('hero_banner');
@@ -32,25 +30,32 @@ get_header();
                 <?php endif; ?>
 
                 <!-- title and about -->
-                <h1><?php echo esc_html(get_field('company_name') ); ?></h1>
-                <p><?php echo esc_html(get_field('company_intro') ); ?></p>
-
-            <!-- Collections CTA -->
-                <?php if (get_field('collections_call_to_action')): ?>    
-                    <?php
-                    $link_collections = get_field('collections_call_to_action');
-
-                    if ($link_collections):
-                        $link_collections_url = $link_collections['url'];
-                        $link_collections_title = $link_collections['title'];
-                        $link_collections_target = $link_collections['target'] ? $link_collections['target'] : '_self';
-                        ?>
-                        <a class="button" href="<?php echo esc_url($link_collections_url); ?>" target="<?php echo esc_attr($link_collections_target); ?>">
-                            <?php echo esc_html($link_collections_title); ?>
-                        </a>
+                 <div class="home-banner-text">
+                    <?php if (get_field('company')): ?>   
+                            <h1><?php the_field('company_name'); ?></h1>
                     <?php endif; ?>
-                <?php endif; ?>
-            </section>
+
+                    <?php if (get_field('company_intro')): ?>
+                            <p><?php the_field('company_intro'); ?></p>
+                    <?php endif; ?>
+
+                    <!-- Collections CTA -->
+                    <?php if (get_field('collections_call_to_action')): ?>    
+                        <?php
+                        $link_collections = get_field('collections_call_to_action');
+
+                        if ($link_collections):
+                            $link_collections_url = $link_collections['url'];
+                            $link_collections_title = $link_collections['title'];
+                            $link_collections_target = $link_collections['target'] ? $link_collections['target'] : '_self';
+                            ?>
+                            <a class="button" href="<?php echo esc_url($link_collections_url); ?>" target="<?php echo esc_attr($link_collections_target); ?>">
+                                <?php echo esc_html($link_collections_title); ?>
+                            </a>
+                        <?php endif; ?>
+                    <?php endif; ?>
+                </div>
+            </header>
 
         <!-- Featured In Section -->
              <aside class="featured-in-section">
@@ -75,7 +80,6 @@ get_header();
 			)
 		);
 
-		//only run if there are terms and isn't an error is_wp_error
 		if ($terms && ! is_wp_error($terms)) : ?>
 			<section class="collections-page">
 				<h2>Explore our Collections</h2>
@@ -83,12 +87,12 @@ get_header();
 
 					<article class="single-collection-container">
 						<!-- here we can pass the entire $term object into this function and it knows what to do to get our link -->
-						<a href="<?php echo get_term_link($term); ?>">
+						<span><a href="<?php echo get_term_link($term); ?>">
 							<!-- here were getting the name out of the $term object to display as the text displayed by the A tag -->
-							<?php echo esc_html($term->name);
+							<?php echo esc_html($term->name);?></span>
 
 
-							$thumbnail_id = get_term_meta($term->term_id, 'thumbnail_id', true);
+							<?php $thumbnail_id = get_term_meta($term->term_id, 'thumbnail_id', true);
 							if ($thumbnail_id) {
 								echo wp_get_attachment_image($thumbnail_id, 'full');
 							} ?>
@@ -97,6 +101,7 @@ get_header();
 				<?php endforeach; ?>
 			</section>
 		<?php endif; ?>
+
 
           <!-- Home Gallery Section -->
             <section class="home-gallery">
