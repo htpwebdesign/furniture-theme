@@ -34,8 +34,5 @@ get_header();
 	</main><!-- #main -->
 
 <?php 
-if ( ! is_cart() && ! is_checkout() ) {
-    get_sidebar();
-} 
+
 get_footer();
-?>

@@ -5,3 +5,12 @@ $font__code: monaco, consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 $font__pre: "Courier 10 Pitch", courier, monospace;
 $font__line-height-body: 1.5;
 $font__line-height-pre: 1.6;
+
+// Typescale from (https://www.fluid-type-scale.com/calculate?minFontSize=16&minWidth=320&minRatio=1.25&maxFontSize=20&maxWidth=1440&maxRatio=1.333&steps=sm,base,h5,h4,h3,h2,h1&baseStep=base&prefix=fs&useContainerWidth=false&includeFallbacks=false&useRems=true&remValue=16&decimals=2&previewFont=Inter&previewText=Almost+before+we+knew+it,+we+had+left+the+ground&previewWidth=1440)
+$fs-sm: clamp(0.8rem, 0.2vi + 0.76rem, 0.94rem);
+$fs-base: clamp(1rem, 0.36vi + 0.93rem, 1.25rem);
+$fs-h5: clamp(1.25rem, 0.59vi + 1.13rem, 1.67rem);
+$fs-h4: clamp(1.56rem, 0.94vi + 1.37rem, 2.22rem);
+$fs-h3: clamp(1.95rem, 1.44vi + 1.67rem, 2.96rem);
+$fs-h2: clamp(2.44rem, 2.15vi + 2.01rem, 3.95rem);
+$fs-h1: clamp(3.05rem, 3.16vi + 2.42rem, 5.26rem);
