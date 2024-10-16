@@ -19,16 +19,16 @@ get_header();
                 <div class="contact-info">
                     <h1><?php the_title(); ?></h1>
                     <div class="contact-details">
-                        <?php if (get_field('address')): ?>
-                            <p><?php the_field('address'); ?></p>
+                        <?php if (get_field('physical_address', 'option')): ?>
+                            <p><?php the_field('physical_address', 'option'); ?></p>
                         <?php endif; ?>
 
-                        <?php if (get_field('phone_number')): ?>
-                            <p>Phone: <?php the_field('phone_number'); ?></p>
+                        <?php if (get_field('phone_number', 'option')): ?>
+                          <p>Phone: <a href=<?php the_field('phone_number', 'option'); ?>><?php the_field('phone_number', 'option'); ?></a></p> 
                         <?php endif; ?>
 
-                        <?php if (get_field('email')): ?>
-                            <p>Email: <a href="mailto:<?php the_field('email'); ?>"><?php the_field('email'); ?></a></p>
+                        <?php if (get_field('email', 'option')): ?>
+                            <p>Email: <a href="mailto:<?php the_field('email', 'option'); ?>"><?php the_field('email', 'option'); ?></a></p>
                         <?php endif; ?>
                     </div>
                     <?php $images = get_field('images'); ?>
