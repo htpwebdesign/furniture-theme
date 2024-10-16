@@ -16,13 +16,15 @@ get_header();
     <?php while (have_posts()) : the_post(); ?>
 
         <?php if (function_exists('the_field')): ?>
-            <section class="contact-banner">
-                <h1><?php the_title(); ?></h1>
+            <header class="hero-banner contact-banner">
+                <div class="contact-banner-text">
+                    <h1><?php the_title(); ?></h1>
+                </div>
                 <?php if (get_field('banner_image')):
                     $banner_image = get_field('banner_image');
                     echo wp_get_attachment_image($banner_image, 'full'); ?>
                 <?php endif; ?>
-            </section>
+            </header>
             <section class="contact-info">
                 <div class="contact-details">
                     <?php if (get_field('physical_address', 'option')): ?>

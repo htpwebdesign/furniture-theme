@@ -15,12 +15,10 @@ get_header();
 
     <?php while ( have_posts() ) : the_post(); ?>
 
-        <h1><?php the_title(); ?></h1>
-
         <?php if (function_exists('the_field')): ?>
 
             <!-- Hero Banner Section -->
-            <section class="hero-banner">
+            <header class="hero-banner home-banner">
                 <?php if (get_field('hero_banner')): ?>    
                     <?php 
                     $image = get_field('hero_banner');
@@ -32,25 +30,32 @@ get_header();
                 <?php endif; ?>
 
                 <!-- title and about -->
-                <h1><?php echo esc_html(get_field('company_name') ); ?></h1>
-                <p><?php echo esc_html(get_field('company_intro') ); ?></p>
-
-            <!-- Collections CTA -->
-                <?php if (get_field('collections_call_to_action')): ?>    
-                    <?php
-                    $link_collections = get_field('collections_call_to_action');
-
-                    if ($link_collections):
-                        $link_collections_url = $link_collections['url'];
-                        $link_collections_title = $link_collections['title'];
-                        $link_collections_target = $link_collections['target'] ? $link_collections['target'] : '_self';
-                        ?>
-                        <a class="button" href="<?php echo esc_url($link_collections_url); ?>" target="<?php echo esc_attr($link_collections_target); ?>">
-                            <?php echo esc_html($link_collections_title); ?>
-                        </a>
+                 <div class="home-banner-text">
+                    <?php if (get_field('company')): ?>   
+                            <h1><?php the_field('company_name'); ?></h1>
                     <?php endif; ?>
-                <?php endif; ?>
-            </section>
+
+                    <?php if (get_field('company_intro')): ?>
+                            <p><?php the_field('company_intro'); ?></p>
+                    <?php endif; ?>
+
+                    <!-- Collections CTA -->
+                    <?php if (get_field('collections_call_to_action')): ?>    
+                        <?php
+                        $link_collections = get_field('collections_call_to_action');
+
+                        if ($link_collections):
+                            $link_collections_url = $link_collections['url'];
+                            $link_collections_title = $link_collections['title'];
+                            $link_collections_target = $link_collections['target'] ? $link_collections['target'] : '_self';
+                            ?>
+                            <a class="button" href="<?php echo esc_url($link_collections_url); ?>" target="<?php echo esc_attr($link_collections_target); ?>">
+                                <?php echo esc_html($link_collections_title); ?>
+                            </a>
+                        <?php endif; ?>
+                    <?php endif; ?>
+                </div>
+            </header>
 
         <!-- Featured In Section -->
              <aside class="featured-in-section">

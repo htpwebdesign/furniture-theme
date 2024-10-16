@@ -15,7 +15,7 @@
     <!-- First Section: Customer Care and Company -->
     <div class="footer-container" >
         <!-- Customer Care Section -->
-        <nav> class="footer-column" >
+        <nav class="footer-column" >
             <h3>Customer Care</h3>
             <?php
             wp_nav_menu( array(
