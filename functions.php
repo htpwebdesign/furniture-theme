@@ -145,7 +145,7 @@ function furniture_theme_scripts() {
 
 	wp_enqueue_script( 'furniture-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
-
+	wp_enqueue_script( 'portfolio-header-scroll', get_template_directory_uri() . '/js/header.js', array(), _S_VERSION, true );
 
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
