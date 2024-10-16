@@ -19,21 +19,24 @@ get_header();
 
 		<?php
 		while ( have_posts() ) : the_post();  ?>
-			<h1><?php the_title(); ?></h1>
-			<?php if (function_exists('the_field')): ?>
-				<?php if (get_field('hero_banner')): ?>	
-					<?php $image = get_field('hero_banner');
+			<section class='about-banner'>
+				<h1><?php the_title(); ?></h1>
+				<?php if (function_exists('the_field')): ?>
+					<?php if (get_field('hero_banner')): ?>	
+						<?php $image = get_field('hero_banner');
 							$size = 'full';
 							if($image){
 								echo wp_get_attachment_image($image,$size);
 							}
-					?>
+						?>
 				<?php endif; ?>
+			</section>
 				<?php if (get_field('about_fields')): ?>	
 					<?php
 						if(have_rows('about_fields')):
 							while(have_rows('about_fields')) : the_row();
 								$heading_value = get_sub_field('heading'); ?>
+								<section>
 								<h2><?php echo esc_attr($heading_value); ?></h2>
 								<?php
 								$content_value = get_sub_field('content'); ?>
@@ -44,6 +47,9 @@ get_header();
 								if($image){
 									echo wp_get_attachment_image($image_value,$size);
 								}
+								?>
+								</section>
+								<?php
 							endwhile;
 						endif;
 					?>
