@@ -17,7 +17,7 @@ get_header();
 
         <?php if (function_exists('the_field')): ?>
             <header class="hero-banner contact-banner">
-                <div class="contact-banner-text">
+                <div class="contact-banner-text banner-content">
                     <h1><?php the_title(); ?></h1>
                 </div>
                 <?php if (get_field('banner_image')):

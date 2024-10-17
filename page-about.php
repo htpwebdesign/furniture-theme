@@ -20,7 +20,7 @@ get_header();
 		<?php
 		while ( have_posts() ) : the_post();  ?>
 			<header class='hero-banner about-banner'>
-				<h1><?php the_title(); ?></h1>
+				<h1 class="banner-content"><?php the_title(); ?></h1>
 				<?php if (function_exists('the_field')): ?>
 					<?php if (get_field('hero_banner')): ?>	
 						<?php $image = get_field('hero_banner');
