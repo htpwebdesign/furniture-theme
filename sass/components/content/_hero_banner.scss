@@ -1,4 +1,4 @@
-header.hero-banner .home-banner {
+header.hero-banner {
   position: relative;
   max-height: 100dvh;
   max-height: 100vh;
@@ -12,5 +12,8 @@ header.hero-banner .home-banner {
   .home-banner-text {
     position: absolute;
     top: 40%;
+    left: 0;
+    right: 0;
+    text-align: center;
   }
 }
