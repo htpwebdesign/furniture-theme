@@ -1,11 +1,29 @@
 // Center block
 @mixin center-block {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 // Column width with margin
 @mixin column-width($numberColumns: 3) {
-	width: map-get($columns, $numberColumns) - calc( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
+  width: map-get($columns, $numberColumns) -
+    calc(($columns__margin * ($numberColumns - 1)) / $numberColumns);
+}
+
+// Primary CTA button
+@mixin cta-button {
+  font-weight: bold;
+  background-color: $color_green_dark;
+  padding: 1rem 2.5rem;
+  border-radius: 0.5rem;
+  color: $color_white;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+
+  &:focus,
+  &:hover {
+    outline: 2px solid darken($color_green_dark, 10%);
+  }
 }
