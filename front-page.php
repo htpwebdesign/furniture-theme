@@ -59,9 +59,10 @@ get_header();
 
         <!-- Featured In Section -->
              <aside class="featured-in-section">
+                <p>Our designs have been featured in...</p>
                 <?php $featured_in_gallery = get_field('featured_in_gallery'); ?>
                 <?php if ($featured_in_gallery): ?>
-                    <div class="gallery">
+                    <div class="featured-in-gallery">
                         <?php foreach ($featured_in_gallery as $feature_image_id): ?>
                             <article class="gallery-item">
                                <?php echo wp_get_attachment_image($feature_image_id, 'full'); ?>
