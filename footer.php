@@ -29,7 +29,7 @@
 
         <!-- Company Section -->
         <nav class="footer-column" >
-            <h3>Company</h3>
+            <h3>Company Info</h3>
             <?php
             wp_nav_menu( array(
                 'theme_location' => 'footer_right',
