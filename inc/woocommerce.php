@@ -227,10 +227,17 @@ remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 3
 //removing "Add to Cart" or "Select Options" from single Collections page
 remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
 
+
+//removing the price from single collections page
+remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10 );
+
+
 //Turns out changing the woocommerce thumbnail size to "full" works, so this is no longer needed 
 
 // add_filter( 'single_product_archive_thumbnail_size', function( $size ) {
 //     return 'full';
 // } );
 
-	
+
+
+
