@@ -1,47 +1,83 @@
 .site-footer {
+    color: $color_white;
 	width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: $color_black;
+    
+    .footer-wrapper {
 
-    .footer-nav-container {
-        display: flex;
-        justify-content: space-around;
+        backdrop-filter: brightness(.3);
+        
+        a {
+            color: $color_white;
 
-            ul {
-                text-decoration: none;
+            &:hover {
+                color: $color_green_light;
+            }
+        }
+
+
+            .footer-nav-container {
+                margin: 0 auto;
+                max-width: 100rem;
+                display: flex;
+                justify-content: space-around;
+                text-align: center;
+
+                // @media screen and (min-width: $mobile_mid_break) {
+                //         text-align: left;
+                //     }
+
+                }
+
+                .footer-menu {
+                    ul {
+                        text-decoration: none;
+                        margin: 0;
+                    }
+        
+                    li {
+                        text-decoration: none;
+                        margin-left: .15rem;
+                    }
+                }
+
+                
+            }
+        
+            .footer-address {
+                margin: 0 auto;
+                padding-top: 2rem;
+                display: flex;
+                flex-direction: column;
+                gap: .5rem;
+                text-align: center;
+                width: fit-content;
+                
+                
+            }
+        
+            hr.solid {
+                width: clamp(20rem, 50vw, 90rem);
+                border-top: 3px solid $color_black;
+                border-radius: 2px;
+              }
+        
+              .copyright-section {
+                text-align: center;
                 margin: 0;
-            }
-
-            li {
-                text-decoration: none;
-            }
-
-    }
-
-    hr.solid {
-        width: 1440px;
-        border-top: 3px solid $color_black;
-        border-radius: 2px;
-      }
-
-
-
-
-
-      address {
-        margin: 0;
-    }
-    .address-item {
-        text-align: center;
-        display: block;
-        margin: 0.5rem;
+        
+                    p {
+                        padding-bottom: 2rem;
+                        margin: 0;
+                    }
+                    
+              }
+        
+        }    
     
-    }
+        
     
-      .copyright-section {
-        text-align: center;
-      }
-
-
-
-
-    }
-
+    
+    
