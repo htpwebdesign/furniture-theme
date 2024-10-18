@@ -14,8 +14,7 @@ ul.products {
     position: relative;
 
     a {
-      h2,
-      span {
+      h2 {
         //this should be removed once the price display is removed
         position: absolute;
         top: 0rem;
