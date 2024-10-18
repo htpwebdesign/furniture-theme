@@ -105,7 +105,7 @@ get_header();
 
 
           <!-- Home Gallery Section -->
-            <section class="home-gallery">
+            <section class="home-masonry">
             
                 <?php $home_page_gallery = get_field('home_page_gallery'); ?>
                 <?php if ($home_page_gallery): ?>

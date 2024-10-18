@@ -1,60 +1,47 @@
 ul.products {
-	margin: 0;
-	padding: 0;
+  margin: unset;
+  padding: unset;
+  list-style-type: none; //probably do this in base styles
 
-	li.product {
-		list-style: none;
-		position: relative;
-		margin-bottom: 2em;
+  //grid
+  display: grid;
+  grid-template-columns: repeat(2, minmax(200px, 1fr));
+  grid-auto-rows: 1rem;
+  gap: 1.25rem;
 
-		img {
-			display: block;
-		}
+  li {
+    background-color: pink;
+    position: relative;
 
-		.button {
-			display: block;
-		}
-	}
-}
+    a {
+      h2 {
+        //this should be removed once the price display is removed
+        position: absolute;
+        top: 0rem;
+        left: 0rem;
+      }
+    }
 
-@media screen and (min-width: 48em) {
+    img {
+      object-fit: cover;
+      height: 100%;
+    }
+  }
 
-	ul.products {
-
-		li.product {
-
-			@include column-width(3);
-			float: left;
-			margin-right: $columns__margin;
-
-			&.first {
-				clear: both;
-			}
-
-			&.last {
-				margin-right: 0;
-			}
-		}
-	}
-
-	ul.products.columns-1 {
-
-		li.product {
-			float: none;
-			width: 100%;
-		}
-
-	}
-
-	@for $i from 2 through 6 {
-
-		ul.products.columns-#{$i} {
-
-			li.product {
-
-				@include column-width( $i );
-			}
-
-		}
-	}
+  li:nth-child(1) {
+    order: 1;
+    grid-row: span 13;
+  }
+  li:nth-child(2) {
+    order: 4;
+    grid-row: span 13;
+  }
+  li:nth-child(3) {
+    order: 2;
+    grid-row: span 19;
+  }
+  li:nth-child(4) {
+    order: 3;
+    grid-row: span 19;
+  }
 }
