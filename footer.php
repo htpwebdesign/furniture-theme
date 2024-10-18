@@ -13,7 +13,7 @@
 
 <footer id="colophon" class="site-footer">
     <!-- First Section: Customer Care and Company -->
-    <div class="footer-container" >
+    <div class="footer-nav-container" >
         <!-- Customer Care Section -->
         <nav class="footer-column" >
             <h3>Customer Care</h3>
@@ -45,22 +45,24 @@
     <!-- Second Section: Address Information -->
         <div class="footer-address">
             <address>
-                <?php if (get_field('physical_address', 'option')): ?>
-                    <p><?php the_field('physical_address', 'option'); ?></p>
+                <?php if (get_field('address_one_line', 'option')): ?>
+                        <a class="address-item" href=<?php the_field('
+                        google_maps_embed_link', 'option');?>><?php the_field('address_one_line', 'option');?></a>
                 <?php endif; ?>
             </address>
                 <?php if (get_field('email', 'option')): ?>
-                    <a href="mailto:<?php the_field('email', 'option'); ?>"><?php the_field('email', 'option'); ?></a>
+                    <a class="address-item" href="mailto:<?php the_field('email', 'option'); ?>"><?php the_field('email', 'option'); ?></a>
                 <?php endif; ?>
                 <?php if (get_field('phone_number', 'option')): ?>
-                    <a href=tel:+<?php the_field('phone_number', 'option'); ?>><?php the_field('phone_number', 'option'); ?></a>
+                    <a class="address-item" href=tel:+<?php the_field('phone_number', 'option'); ?>><?php the_field('phone_number', 'option'); ?></a>
                 <?php endif; ?>
         </div>
     <?php endif; ?>
     <!-- Third Section: Copyright -->
-    <div class="footer-bottom">
+    <hr class="solid">
+    <div class="footer-bottom copyright-section">
         <?php if (get_field('store_name', 'option')): ?>
-            <p>© 2024 <?php the_field('store_name', 'option'); ?> | All Rights Reserved </p>
+            <p class="copyright-text">© 2024 <?php the_field('store_name', 'option'); ?> | All Rights Reserved </p>
         <?php endif; ?>
     </div>
 </footer>

@@ -1,0 +1,47 @@
+.site-footer {
+	width: 100%;
+
+    .footer-nav-container {
+        display: flex;
+        justify-content: space-around;
+
+            ul {
+                text-decoration: none;
+                margin: 0;
+            }
+
+            li {
+                text-decoration: none;
+            }
+
+    }
+
+    hr.solid {
+        width: 1440px;
+        border-top: 3px solid $color_black;
+        border-radius: 2px;
+      }
+
+
+
+
+
+      address {
+        margin: 0;
+    }
+    .address-item {
+        text-align: center;
+        display: block;
+        margin: 0.5rem;
+    
+    }
+    
+      .copyright-section {
+        text-align: center;
+      }
+
+
+
+
+    }
+
