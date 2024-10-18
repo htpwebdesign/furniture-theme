@@ -1,5 +1,8 @@
 a {
 	color: $color__link;
+	text-decoration: none;
+	text-shadow: none;
+	transition: color 0.4s ease-in-out ;
 
 	&:visited {
 		color: $color__link-visited;
@@ -9,6 +12,8 @@ a {
 	&:focus,
 	&:active {
 		color: $color__link-hover;
+		// text-shadow: 1px 1px 2px $color_black;
+
 	}
 
 	&:focus {
@@ -20,3 +25,4 @@ a {
 		outline: 0;
 	}
 }
+

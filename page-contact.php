@@ -27,10 +27,11 @@ get_header();
             </header>
             <section class="contact-info">
                 <div class="contact-details">
-                    <?php if (get_field('physical_address', 'option')): ?>
-                        <p><?php the_field('physical_address', 'option'); ?></p>
-                    <?php endif; ?>
-
+                    <address>
+                        <?php if (get_field('physical_address', 'option')): ?>
+                            <p><?php the_field('physical_address', 'option'); ?></p>
+                        <?php endif; ?>
+                    </address>
                     <?php if (get_field('phone_number', 'option')): ?>
                         <p>Phone: <a href=tel:+<?php the_field('phone_number', 'option'); ?>><?php the_field('phone_number', 'option'); ?></a></p>
                     <?php endif; ?>

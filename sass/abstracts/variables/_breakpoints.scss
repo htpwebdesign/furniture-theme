@@ -3,10 +3,12 @@
 
 // MAKE THEM EMS
 $mobile_break: 20em; // 320px
+$mobile_mid_break: 37.5rem; //600px
 $tablet_break: 48em; // 768px
 $desktop_break: 64em; // 1024px
-$desktop_large_break: 64em; // 1024px
+$desktop_large_break: 90rem; // 1024px
 
 // Max Width
 $max-width: 120rem; // 1920px
 
+$max-content-width: 90rem; //1440px
