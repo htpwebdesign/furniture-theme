@@ -53,18 +53,21 @@
 					<path d="M4 12H7L20 12" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
 				</svg>
 			</button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-			<?php
-				if ( function_exists( 'furniture_theme_woocommerce_header_cart' ) ) {
-					furniture_theme_woocommerce_header_cart();
-				}
-			?>
+            <div class="nav-menu">
+				
+				<?php
+				wp_nav_menu(
+					array(
+						'theme_location' => 'menu-1',
+						'menu_id'        => 'primary-menu',
+					)
+				);
+				?>
+				<?php
+					if ( function_exists( 'furniture_theme_woocommerce_header_cart' ) ) {
+						furniture_theme_woocommerce_header_cart();
+					}
+				?>
+			</div>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
