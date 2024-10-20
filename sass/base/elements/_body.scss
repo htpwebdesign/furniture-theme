@@ -1,19 +1,21 @@
 #page {
-	
-	ul {
-		list-style: none;
-		margin: 0;
-		padding: 0;
-	}
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
 
-	address {
-		margin: 0;
-	  }
-	  
+  address {
+    margin: 0;
+  }
 }
 
-
 body {
-	background: $color__background-body; // Fallback for when there is no custom background color defined.
-	
+  background: $color__background-body; // Fallback for when there is no custom background color defined.
+
+  aside,
+  section,
+  .home-banner-text {
+    margin: 0 $space-s-2xl;
+  }
 }

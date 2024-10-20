@@ -31,7 +31,7 @@ get_header();
 
                 <!-- title and about -->
                  <div class="home-banner-text banner-content">
-                    <?php if (get_field('company')): ?>   
+                    <?php if (get_field('company_name')): ?>   
                             <h1><?php the_field('company_name'); ?></h1>
                     <?php endif; ?>
 
