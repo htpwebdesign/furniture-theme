@@ -1,12 +1,8 @@
-.contact-page {
-    width: 80%;
-    margin: 0 auto;
-}
 
 .contact-info {
-    padding: 20px;
+    // padding: 20px;
     background-color: #f5f5f5;
-    margin-bottom: 40px;
+    // margin-bottom: 40px;
 
     // h2 {
     //     font-size: 24px;
@@ -23,7 +19,8 @@
 
 .contact-form {
     background-color: #f5f5f5;
-    padding: 20px;
+    max-width: $max-content-width;
+    margin: 0 auto;
 
     // h3 {
     //     font-size: 22px;
@@ -35,7 +32,7 @@
         width: 100%;
         padding: 10px;
         margin-bottom: 10px;
-        border-radius: 5px;
+        border-radius: 1rem;
         border: 1px solid #ddd;
     }
 
