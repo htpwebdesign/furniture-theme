@@ -19,7 +19,7 @@ get_header();
 
 		<?php
 		while ( have_posts() ) : the_post();  ?>
-			<header class='hero-banner about-banner'>
+			<header class='hero-banner about-banner half-banner'>
 				<h1 class="banner-content"><?php the_title(); ?></h1>
 				<?php if (function_exists('the_field')): ?>
 					<?php if (get_field('hero_banner')): ?>	
