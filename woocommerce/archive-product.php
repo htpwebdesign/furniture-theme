@@ -81,15 +81,13 @@ if (woocommerce_product_loop()) {
 
 		//only run if there are terms and isn't an error is_wp_error
 		if ($terms && ! is_wp_error($terms)) : ?>
-			<section class="collections-page">
-				<h2>Explore our Collections</h2>
 				<?php foreach ($terms as $term) : ?>
 
 					<article class="single-collection-container">
 						<!-- here we can pass the entire $term object into this function and it knows what to do to get our link -->
 						<a href="<?php echo get_term_link($term); ?>">
 							<!-- here were getting the name out of the $term object to display as the text displayed by the A tag -->
-							<h3><?php echo esc_html($term->name);?></h3>
+							<h2><?php echo esc_html($term->name);?></h2>
 
 							<?php $thumbnail_id = get_term_meta($term->term_id, 'thumbnail_id', true);
 							if ($thumbnail_id) {

@@ -83,7 +83,8 @@ get_header();
 
 		if ($terms && ! is_wp_error($terms)) : ?>
 			<section class="collections-page">
-				<h2>Explore our Collections</h2>
+                <!-- JONATHON SAYS NO CONDITIONAL!!!! -->
+				<h2><?php echo esc_html(get_the_title(13))?></h2>
 				<?php foreach ($terms as $term) : ?>
 
 					<article class="single-collection-container">
@@ -130,7 +131,7 @@ get_header();
                         $request_quote_target = $request_quote['target'] ? $request_quote['target'] : '_self';
                         ?>
                         <a class="button" href="<?php echo esc_url($request_quote_url); ?>" target="<?php echo esc_attr($request_quote_target); ?>">
-                            Request a quote
+                        <?php echo esc_html($request_quote_title); ?>
                         </a>
                     <?php endif; ?>
                 <?php endif; ?>
