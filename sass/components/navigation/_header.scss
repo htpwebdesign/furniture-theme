@@ -194,9 +194,26 @@
   .hide-desktop {
     display: none;
   }
-  .main-navigation {
-    .nav-menu {
-      display: flex;
+
+  .site-header {
+    height: auto;
+    .main-navigation {
+      .nav-menu {
+        display: flex;
+        flex-direction: row;
+        transform: unset;
+        height: auto;
+        background-color: unset;
+        position: static;
+
+        li {
+          margin: 0;
+
+          a {
+            line-height: 5.0625rem;
+          }
+        }
+      }
     }
 
     .menu-toggle {
