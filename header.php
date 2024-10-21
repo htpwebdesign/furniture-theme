@@ -63,11 +63,11 @@
 					)
 				);
 				?>
+			</div>
 				<?php
 					if ( function_exists( 'furniture_theme_woocommerce_header_cart' ) ) {
 						furniture_theme_woocommerce_header_cart();
 					}
 				?>
-			</div>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
