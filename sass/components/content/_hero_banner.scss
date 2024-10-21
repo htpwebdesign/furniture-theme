@@ -1,3 +1,6 @@
+
+//fullsize banner pages
+
 header.hero-banner {
   position: relative;
   max-height: 100dvh;
@@ -16,6 +19,34 @@ header.hero-banner {
     left: 0;
     right: 0;
     text-align: center;
+
+    h1,
+    p {
+      color: $color_white;
+    }
+  }
+}
+
+
+
+//have size banner pages 
+
+header.half-banner {
+  position: relative;
+
+  img {
+    width: 100%;
+    // object-fit: cover;
+    filter: brightness(0.5);
+  }
+
+  .banner-content {
+    position: absolute;
+    top: 30%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 999;
 
     h1,
     p {
