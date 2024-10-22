@@ -33,29 +33,32 @@ get_header();
 			</header>
 				<?php if ( get_field('about_fields') ): ?>	
 					<?php
-						if ( have_rows('about_fields') ):
-							while ( have_rows('about_fields') ) : the_row();
-								$heading_value = get_sub_field('heading'); ?>
-								<section class="about-section" >
-										<div class="about-section-text">
-											<h2><?php echo esc_attr($heading_value); ?></h2>
-											<?php
-											$content_value = get_sub_field('content'); ?>
-											<p><?php echo esc_attr($content_value); ?></p>
-										</div>
-										<div class="about-section-img">
-											<?php
-											$image_value = get_sub_field('image');
-											$size = 'full';
-											if($image){
-												echo wp_get_attachment_image($image_value,$size);
-											}
-											?>
-										</div>
-								</section>
-								<?php
-							endwhile;
-						endif;
+						if ( have_rows('about_fields') ):?>
+							<div class="about-section-container">
+								<?php while ( have_rows('about_fields') ) : the_row();
+									$heading_value = get_sub_field('heading'); ?>
+										<section class="about-section" >
+												<div class="about-section-text">
+													<h2><?php echo esc_attr($heading_value); ?></h2>
+													<?php
+													$content_value = get_sub_field('content'); ?>
+													<p><?php echo esc_attr($content_value); ?></p>
+													<?php get_template_part('template-parts/cta');?>
+												</div>
+												<div class="about-section-img">
+													<?php
+													$image_value = get_sub_field('image');
+													$size = 'full';
+													if($image){
+														echo wp_get_attachment_image($image_value,$size);
+													}
+													?>
+												</div>
+										</section>
+										<?php
+								endwhile; ?>
+							</div>
+						<?php endif;
 				 endif; 
 			 endif; 
 		endwhile; // End of the loop.

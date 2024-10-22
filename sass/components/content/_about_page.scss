@@ -1,0 +1,21 @@
+@media screen and (min-width: $tablet_break) {
+  .about-section-container {
+    .about-section {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 1rem;
+
+      &:nth-child(2) {
+        flex-direction: row-reverse;
+      }
+
+      .about-section-text {
+        flex: 50%;
+      }
+      .about-section-img {
+        flex: 50%;
+      }
+    }
+  }
+}
