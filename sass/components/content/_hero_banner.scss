@@ -1,4 +1,3 @@
-
 //fullsize banner pages
 
 header.hero-banner {
@@ -15,7 +14,7 @@ header.hero-banner {
 
   .banner-content {
     position: absolute;
-    top: 30%;
+    top: 40%;
     left: 0;
     right: 0;
     text-align: center;
@@ -23,13 +22,13 @@ header.hero-banner {
     h1,
     p {
       color: $color_white;
+      margin: unset;
+      margin-bottom: 2rem;
     }
   }
 }
 
-
-
-//have size banner pages 
+//have size banner pages
 
 header.half-banner {
   position: relative;
