@@ -15,11 +15,19 @@
       position: absolute;
       text-align: center;
       width: 100%;
-      top: 80%;
+      bottom: 30%;
       left: 0;
       background-color: $color_light_gray;
       color: $color_black;
       margin: 0;
+    }
+  }
+}
+
+.products.columns-4 {
+  li a {
+    h2 {
+      padding: 1rem;
     }
   }
 }
