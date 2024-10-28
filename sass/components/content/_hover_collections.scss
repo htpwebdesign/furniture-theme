@@ -10,15 +10,24 @@
       height: auto;
     }
 
-    h3 {
+    h3,
+    h2 {
       position: absolute;
       text-align: center;
       width: 100%;
-      top: 80%;
+      bottom: 30%;
       left: 0;
       background-color: $color_light_gray;
       color: $color_black;
       margin: 0;
+    }
+  }
+}
+
+.products.columns-4 {
+  li a {
+    h2 {
+      padding: 1rem;
     }
   }
 }
@@ -31,20 +40,24 @@
       backface-visibility: hidden;
     }
 
-    a h3 {
-      transition: 0.5s ease;
-      opacity: 0;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
+    a {
+      h3,
+      h2 {
+        transition: 0.5s ease;
+        opacity: 0;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+      }
     }
 
     &:hover {
       img {
         opacity: 0.3;
       }
-      h3 {
+      h3,
+      h2 {
         opacity: 1;
       }
     }

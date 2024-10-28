@@ -238,6 +238,15 @@ remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_l
 //     return 'full';
 // } );
 
+/**
+ * Remove default WooCommerce breadcrumb from before main content
+ */
+remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
+
+/**
+ * Add breadcrumb into the header using 'woocommerce_shop_loop_header' hook.
+ */
+add_action('woocommerce_archive_description', 'woocommerce_breadcrumb', 15);
 
 
 

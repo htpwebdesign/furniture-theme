@@ -215,3 +215,19 @@ function yoast_to_bottom(){
 	return 'low';
 }
 add_filter( 'wpseo_metabox_prio', 'yoast_to_bottom' );
+
+/**
+ *single product page hooks 
+ */
+//unsetting tabs
+function remove_product_tabs( $tabs ) {
+    unset( $tabs['description'] );
+    unset( $tabs['reviews'] );
+    unset( $tabs['additional_information'] );
+    return $tabs;
+}
+add_filter( 'woocommerce_product_tabs', 'remove_product_tabs', 98, 1 );
+
+add_action( 'woocommerce_before_single_product_summary', 'woocommerce_product_description_tab', 25 );
+//add_action( 'woocommerce_after_single_product_summary', 'woocommerce_product_additional_information_tab' );
+//add_action( 'woocommerce_after_single_product_summary', 'comments_template' );
