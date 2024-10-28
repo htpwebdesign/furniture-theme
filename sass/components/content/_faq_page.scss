@@ -1,74 +1,72 @@
-
-
 //accordion styling
 
-.accordion-wrapper {
-    max-width: 20rem;
+section.accordion-wrapper {
     margin: 0 auto;
-}
+    margin-bottom: $margin-bottom;
 
-.accordion {
-    all: unset;
-    border: 1px solid $color_brown;
-    border-radius: 4px;
-    margin-bottom: 10px;
-    cursor: pointer;
-    padding: 1rem;
-    text-align: left;
-    outline: none;
-    transition: background-color 0.5s ease;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 20rem;
-    position: relative;
+    .accordion {
+        all: unset;
+        border: 1px solid $color_brown;
+        border-radius: 4px;
+        margin: 0 auto;
+        margin-bottom: 10px;
+        cursor: pointer;
+        padding: clamp(0.5rem, 2vw, 1.5rem);
+        text-align: left;
+        outline: none;
+        transition: background-color 0.5s ease;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        width: clamp(18rem, 50vw, 64rem);
+        max-width: 90rem;
 
-    /* Arrow or X Icon on open / close */
+        /* Arrow or X Icon on open / close */
         &:after {
-            content: '\07CD'; /* Unicode for a down arrow */
+            content: "\07CD"; /* Unicode for a down arrow */
             font-size: 1rem;
             position: absolute;
             right: 1rem;
             transition: transform 0.3s ease;
         }
 
-        .active, &:hover {
+        .active,
+        &:hover {
             background-color: $color_green_light;
             border-color: $color_green_dark;
         }
 
         &.active::after {
-            content: '\2715'; /* Unicode for an 'X' */
+            content: "\2715"; /* Unicode for an 'X' */
             transform: rotate(180deg);
         }
+    }
 
-}
+    .accordion-content {
+        max-height: 0;
+        width: clamp(18rem, 50vw, 64rem);
+        max-width: 90rem;
+        margin: 0 auto;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: max-height 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+        p {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
 
-.accordion-content {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: max-height 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
-    padding: 0 1rem;
-            p {
-                opacity: 0;
-                transition: opacity 0.5s ease;
-            }
+        &.show {
+            max-height: 30rem; /* Large enough to accommodate content */
+            opacity: 1;
+            transform: translateY(0);
+            padding-top: 1rem;
+            padding-bottom: 1rem;
 
-            &.show {
-                max-height: 30rem; /* Large enough to accommodate content */
+            &.show p {
                 opacity: 1;
-                transform: translateY(0);
-                padding-top: 1rem;
-                padding-bottom: 1rem;
-
-                    &.show p {
-                        opacity: 1;
-                    }
             }
+        }
+    }
 }
-
-
-
-
