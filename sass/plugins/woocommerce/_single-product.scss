@@ -2,6 +2,30 @@
   .product {
     margin: 0 $space-s-2xl; //margin variable?
   }
+  /* the following is unsetting stuff from other pages, could probably be refactored */
+  h1 {
+    //asign this in topography?
+    margin: 0;
+  }
+  .entry-information {
+    h2 {
+      display: none;
+    }
+  }
+  .entry-summary {
+    margin: 0;
+    border: 1.5px solid black;
+    padding: 0.5rem;
+
+    .woocommerce-variation-add-to-cart {
+      max-width: 26rem;
+    }
+
+    .payment_method_stripe_googlepay,
+    .payment_method_stripe_applepay {
+      max-width: 100%;
+    }
+  }
   .quantity {
     margin: 1rem 0;
     input {
@@ -24,15 +48,35 @@
       display: grid;
       gap: 1rem;
       grid-template-columns: repeat(2, 1fr);
-
-      .woocommerce-product-gallery {
-        margin-top: 7rem;
-      }
+    }
+    .related-products {
+      grid-column: span 2;
     }
   }
-
-  //section under product info
-  .related {
-    overflow: hidden; //this is temp until we figure out related products section
+}
+//very specific overrides
+#page .related-products .products,
+.single-product .related-products .product {
+  //ul has a very high specificity for some reason
+  margin: 0;
+}
+.related-products .product {
+  all: unset;
+}
+.related-products .related .products {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, auto);
+  li {
+    position: relative;
+  }
+  img {
+    height: 25rem;
+    object-fit: cover;
+  }
+  h2 {
+    position: absolute;
+    top: 0rem;
+    left: 0rem;
   }
 }
