@@ -1,44 +1,125 @@
-.contact-info {
-    // padding: 20px;
-    background-color: #f5f5f5;
-    // margin-bottom: 40px;
 
-    // h2 {
-    //     font-size: 24px;
-    //     margin-bottom: 10px;
-    //     text-align: center;
-    // }
+header.contact-banner {
+    position: relative;
 
-    .contact-details {
-        text-align: center;
-        margin: 20px 0;
-    }
+             #contact-banner-text {
+                position: absolute;
+                margin-left: auto;
+                margin-right: auto;
+                top: 10rem;
+                left: 0;
+                right: 0;
+                text-align: center;
+                z-index: 10;
+
+                
+            }
+
+
+            .contact-info {
+                // display: flex;
+                border: double 2px;
+                border-radius: 1rem;
+                border-color: white;
+                background-color: $color_white;
+                backdrop-filter: blur(10px);
+                padding: .5rem;
+                position: absolute;
+                margin-left: auto;
+                margin-right: auto;
+                top: 18rem;
+                left: 0;
+                right: 0;
+                text-align: center;
+                width: clamp(18rem, 50vw, 64rem);
+                max-width: 64rem;
+                gap: 1rem;
+                    
+                        .contact-details {
+                            text-align: center;
+                            margin: 1.5rem 0;
+
+                                a {
+                                    text-decoration: underline;
+                                }
+                        }
+
+            }
+
+            // #google-map {
+
+            //     border: solid 2px;
+            //     border-radius: 1rem;
+            //     position: absolute;
+            //     margin-left: auto;
+            //     margin-right: auto;
+            //     top: 35rem;
+            //     left: 0;
+            //     right: 0;
+            //     width: clamp(18rem, 50vw, 64rem);
+            // }
+
+
+
+
+            @media (min-width: 48em) {
+
+              
+                .contact-info {
+                    display: flex;
+                    width: clamp(40rem, 75vw, 90rem);
+                    height: auto;
+                    flex-direction: row-reverse;
+                    
+                        .contact-details {
+                            width: clamp(18rem, 50vw, 30rem);
+                            display: flex;
+                            flex-direction: column;
+                            justify-items: center;
+                            justify-content: center;
+                        }
+
+                        #google-map {
+                            width: clamp(18rem, 50vw, 30rem);
+                            height: auto;
+                        }
+                }
+
+            }
+
 }
 
-
 .contact-form {
+    font-size: $fs-base;
+    border: solid 2px;
+    border-radius: 1rem;
+    border-color: $color_green_dark;
     background-color: #f5f5f5;
-    max-width: 67.5rem;
+    width: clamp(18rem, 75vw, 64rem);
+    max-width: 64rem;
     margin: 0 auto;
-    padding: $space-s-2xl;
+    margin-bottom: $margin-bottom;
+    padding: 0 $space-s-2xl;
+    padding-bottom: 4rem;
 
     input,
     textarea {
         width: 100%;
-        padding: 10px;
-        // margin-bottom: 10px;
+        border: solid 2px;
         border-radius: 1rem;
-        // border: 1px solid #ddd;
+        border-color: $color_green_dark;
+       
     }
 
-    input[type="submit"] {
-        background-color: #555;
-        color: #fff;
+    #gform_submit_button_1 {
+        font-weight: bold;
+        background-color: $color_green_dark;
+        padding: 1rem 2.5rem;
+        border-radius: 0.5rem;
+        color: $color_white;
         border: none;
-        cursor: pointer;
-        padding: 10px 20px;
-        border-radius: 5px;
-
+        text-align: center;
+        text-decoration: none;
         &:hover {
             background-color: #333;
         }
