@@ -28,7 +28,7 @@ header.hero-banner {
   }
 }
 
-//have size banner pages
+//half size banner pages
 
 header.half-banner {
   position: relative;
@@ -50,6 +50,34 @@ header.half-banner {
     h1,
     p {
       color: $color_white;
+    }
+  }
+}
+
+// PRODUCTS PAGE
+
+header.woocommerce-products-header {
+  height: 50vh;
+  display: flex;
+  background-image: linear-gradient(to bottom, $color_green_dark, $color_white);
+
+  .banner-content {
+    display: flex;
+    flex-direction: column-reverse;
+    margin: $space-s-2xl;
+
+    nav {
+      display: inline-block;
+    }
+
+    h1 {
+      margin: unset;
+    }
+
+    h1,
+    nav,
+    a {
+      color: $color_green_dark;
     }
   }
 }
