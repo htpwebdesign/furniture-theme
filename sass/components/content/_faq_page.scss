@@ -7,9 +7,9 @@ section.accordion-wrapper {
     .accordion {
         all: unset;
         border: 1px solid $color_brown;
-        border-radius: 4px;
+        border-radius: 1rem;
         margin: 0 auto;
-        margin-bottom: 10px;
+        margin-bottom: 1rem;
         cursor: pointer;
         padding: clamp(0.5rem, 2vw, 1.5rem);
         text-align: left;
@@ -31,10 +31,14 @@ section.accordion-wrapper {
             transition: transform 0.3s ease;
         }
 
-        .active,
+        &.active {
+            border: 0;
+            font-weight: 700;
+        }
         &:hover {
-            background-color: $color_green_light;
+            background-color: $color__background-pre;
             border-color: $color_green_dark;
+            font-weight: 700;
         }
 
         &.active::after {
@@ -58,7 +62,7 @@ section.accordion-wrapper {
         }
 
         &.show {
-            max-height: 30rem; /* Large enough to accommodate content */
+            max-height: 30rem; /* make this big enough enough to accommodate content */
             opacity: 1;
             transform: translateY(0);
             padding-top: 1rem;
