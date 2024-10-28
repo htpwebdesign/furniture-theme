@@ -1,86 +1,38 @@
 .single-product {
+  .product {
+    margin: 0 $space-s-2xl; //margin variable?
+  }
+  .quantity {
+    margin: 1rem 0;
+    input {
+      background-color: $color__background-body;
+      display: block;
+      width: 100%;
+      border: 2px $color_black solid;
+    }
+  }
+  .single_add_to_cart_button {
+    display: block;
+    width: 100%;
+    margin: 1rem 0;
+    background-color: $color__background-body;
+    border: 2px $color_black solid;
+  }
 
-	div.product {
-		position: relative;
+  @media (min-width: 48em) {
+    .product {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(2, 1fr);
 
-		.woocommerce-product-gallery {
-			position: relative;
-			float: left;
+      .woocommerce-product-gallery {
+        margin-top: 7rem;
+      }
+    }
+  }
 
-			.woocommerce-product-gallery__trigger {
-				position: absolute;
-				top: 2em;
-				right: 1em;
-				display: block;
-				z-index: 99;
-			}
-
-			.flex-viewport {
-				margin-bottom: 1em;
-			}
-
-			.flex-control-thumbs {
-				margin: 0;
-				padding: 0;
-
-				li {
-					list-style: none;
-					cursor: pointer;
-					float: left;
-
-					img {
-						opacity: 0.5;
-
-						&.flex-active {
-							opacity: 1;
-						}
-					}
-
-					&:hover {
-
-						img {
-							opacity: 1;
-						}
-					}
-				}
-			}
-
-			@for $i from 2 through 5 {
-
-				&.woocommerce-product-gallery--columns-#{$i} {
-
-					.flex-control-thumbs {
-
-						li {
-
-							@include column-width($i);
-
-							&:nth-child(#{$i}n) {
-								margin-right: 0;
-							}
-
-							&:nth-child(#{$i}n+1) {
-								clear: both;
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-.stock {
-
-	&:empty::before {
-		display: none;
-	}
-
-	&.in-stock {
-		color: $woocommerce__color-success;
-	}
-
-	&.out-of-stock {
-		color: $woocommerce__color-error;
-	}
+  //section under product info
+  .related {
+    overflow: hidden; //this is temp until we figure out related products section
+  }
 }
