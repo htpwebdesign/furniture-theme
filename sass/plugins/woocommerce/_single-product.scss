@@ -1,11 +1,36 @@
 .single-product {
-  padding: 0 1rem;
-  .woocommerce-product-gallery {
+  margin: 0 1rem; //margin variable?
+
+  .quantity {
+    margin: 1rem 0;
+    input {
+      background-color: $color__background-body;
+      display: block;
+      width: 100%;
+      border: 2px $color_black solid;
+    }
+  }
+  .single_add_to_cart_button {
+    display: block;
+    width: 100%;
+    margin: 1rem 0;
+    background-color: $color__background-body;
+    border: 2px $color_black solid;
   }
 
-  @media (min-width: 40em) {
+  @media (min-width: 48em) {
+    .product {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(2, 1fr);
+
+      .woocommerce-product-gallery {
+        margin-top: 7rem;
+      }
+    }
   }
 
+  //section under product info
   .related {
     overflow: hidden; //this is temp until we figure out related products section
   }
