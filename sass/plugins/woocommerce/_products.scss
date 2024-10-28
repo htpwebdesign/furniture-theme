@@ -1,13 +1,19 @@
+#page .products {
+  //ul has a very high specificity for some reason
+  margin: 0 $space-s-2xl;
+}
+
 ul.products {
-  margin: unset;
   padding: unset;
   list-style-type: none; //probably do this in base styles
-
   //grid
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: 1rem;
+  grid-template-columns: repeat(1, 1fr);
   gap: 1.25rem;
+  @media (min-width: 48em) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 1rem;
+  }
 
   li {
     background-color: pink;
@@ -27,21 +33,22 @@ ul.products {
       height: 100%;
     }
   }
-
-  li:nth-child(1) {
-    order: 1;
-    grid-row: span 13;
-  }
-  li:nth-child(2) {
-    order: 4;
-    grid-row: span 13;
-  }
-  li:nth-child(3) {
-    order: 2;
-    grid-row: span 19;
-  }
-  li:nth-child(4) {
-    order: 3;
-    grid-row: span 19;
+  @media (min-width: 48em) {
+    li:nth-child(1) {
+      order: 1;
+      grid-row: span 13;
+    }
+    li:nth-child(2) {
+      order: 4;
+      grid-row: span 13;
+    }
+    li:nth-child(3) {
+      order: 2;
+      grid-row: span 19;
+    }
+    li:nth-child(4) {
+      order: 3;
+      grid-row: span 19;
+    }
   }
 }

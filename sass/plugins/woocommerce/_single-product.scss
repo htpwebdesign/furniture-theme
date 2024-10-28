@@ -1,6 +1,7 @@
 .single-product {
-  margin: 0 1rem; //margin variable?
-
+  .product {
+    margin: 0 $space-s-2xl; //margin variable?
+  }
   .quantity {
     margin: 1rem 0;
     input {
