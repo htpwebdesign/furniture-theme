@@ -16,9 +16,9 @@ get_header();
     <?php while (have_posts()) : the_post(); ?>
 
         <?php if (function_exists('the_field')): ?>
-            <header class="hero-banner contact-banner half-banner">
-                <div class="contact-banner-text banner-content">
-                    <h1><?php the_title(); ?></h1>
+            <header class="hero-banner contact-banner">
+                <div id="contact-banner-text" class="contact-banner-text banner-content">
+                    <h1 class="contact-title"><?php the_title(); ?></h1>
                 </div>
                 <?php if (get_field('banner_image')):
                     $banner_image = get_field('banner_image');
@@ -40,9 +40,14 @@ get_header();
                         <p>Email: <a href="mailto:<?php the_field('email', 'option'); ?>"><?php the_field('email', 'option'); ?></a></p>
                     <?php endif; ?>
                 </div>
+                <!-- googlemaps shortcode -->
+                <div id="google-map" class="google-map" >
+                    <?php echo do_shortcode('[mappress mapid="1"]'); ?>
+                </div>
             </section>
         <?php endif; ?>
 
+        <!-- gravity forms shortcode -->
         <section class="contact-form">
             <?php echo do_shortcode('[gravityform id="1" title="true"]'); ?>
         </section>

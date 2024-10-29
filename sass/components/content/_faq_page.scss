@@ -20,7 +20,7 @@ section.accordion-wrapper {
         align-items: center;
         position: relative;
         width: clamp(18rem, 50vw, 64rem);
-        max-width: 90rem;
+        max-width: 64rem;
 
         /* Arrow or X Icon on open / close */
         &:after {
@@ -50,7 +50,7 @@ section.accordion-wrapper {
     .accordion-content {
         max-height: 0;
         width: clamp(18rem, 50vw, 64rem);
-        max-width: 90rem;
+        max-width: 64rem;
         margin: 0 auto;
         overflow: hidden;
         opacity: 0;
