@@ -31,8 +31,11 @@ if ( post_password_required() ) {
 	return;
 }
 ?>
+	<header class="entry-header">
+		<div class="banner-content">
+		</div>
+	</header><!-- .entry-header -->
 <div id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?>>
-
 	<div class="entry-information">
 		<?php
 		/**
