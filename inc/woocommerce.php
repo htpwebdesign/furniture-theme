@@ -249,4 +249,6 @@ remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
 add_action('woocommerce_archive_description', 'woocommerce_breadcrumb', 15);
 
 
+//removing "Added to cart" message
 
+add_filter( 'wc_add_to_cart_message_html', '__return_false' );
