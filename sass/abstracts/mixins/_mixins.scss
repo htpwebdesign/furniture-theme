@@ -35,10 +35,11 @@
 }
 
 @mixin bw-hover {
-  transition: .5s ease-in-out;  
+  transition: .5s ease-in-out;
+  filter: brightness(0.8);  
 
     &:hover {
       transform: scale(1.01);
-      filter: brightness(1.5);
+      filter: brightness(1);
     }
 }
