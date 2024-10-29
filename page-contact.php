@@ -24,27 +24,27 @@ get_header();
                     $banner_image = get_field('banner_image');
                     echo wp_get_attachment_image($banner_image, 'full'); ?>
                 <?php endif; ?>
-                <section class="contact-info">
-                    <div class="contact-details">
-                        <address>
-                            <?php if (get_field('physical_address', 'option')): ?>
-                                <p><?php the_field('physical_address', 'option'); ?></p>
-                            <?php endif; ?>
-                        </address>
-                        <?php if (get_field('phone_number', 'option')): ?>
-                            <p>Phone: <a href=tel:+<?php the_field('phone_number', 'option'); ?>><?php the_field('phone_number', 'option'); ?></a></p>
-                        <?php endif; ?>
-    
-                        <?php if (get_field('email', 'option')): ?>
-                            <p>Email: <a href="mailto:<?php the_field('email', 'option'); ?>"><?php the_field('email', 'option'); ?></a></p>
-                        <?php endif; ?>
-                    </div>
-                    <!-- googlemaps shortcode -->
-                    <div id="google-map" class="google-map" >
-                        <?php echo do_shortcode('[mappress mapid="1"]'); ?>
-                    </div>
-                </section>
             </header>
+            <section class="contact-info">
+                <div class="contact-details">
+                    <address>
+                        <?php if (get_field('physical_address', 'option')): ?>
+                            <p><?php the_field('physical_address', 'option'); ?></p>
+                        <?php endif; ?>
+                    </address>
+                    <?php if (get_field('phone_number', 'option')): ?>
+                        <p>Phone: <a href=tel:+<?php the_field('phone_number', 'option'); ?>><?php the_field('phone_number', 'option'); ?></a></p>
+                    <?php endif; ?>
+
+                    <?php if (get_field('email', 'option')): ?>
+                        <p>Email: <a href="mailto:<?php the_field('email', 'option'); ?>"><?php the_field('email', 'option'); ?></a></p>
+                    <?php endif; ?>
+                </div>
+                <!-- googlemaps shortcode -->
+                <div id="google-map" class="google-map" >
+                    <?php echo do_shortcode('[mappress mapid="1"]'); ?>
+                </div>
+            </section>
         <?php endif; ?>
 
         <!-- gravity forms shortcode -->

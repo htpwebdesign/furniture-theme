@@ -11,56 +11,53 @@ header.contact-banner {
         text-align: center;
         z-index: 10;
     }
+}
 
-    .contact-info {
-        // display: flex;
-        border: double 2px;
-        border-radius: 1rem;
-        border-color: white;
-        background-color: $color_white;
-        padding: 0.5rem;
-        position: absolute;
-        margin-left: auto;
-        margin-right: auto;
-        top: 18rem;
-        left: 0;
-        right: 0;
+.contact-info {
+    // display: flex;
+    margin: 0 auto;
+    border: 1px;
+    border-radius: 1rem;
+    border-color: $color_green_dark;
+    background-color: $color_white;
+    padding: 0.5rem;
+    text-align: center;
+    width: clamp(18rem, 50vw, 64rem);
+    max-width: 64rem;
+    gap: 1rem;
+    margin-bottom: $margin-bottom;
+
+
+    .contact-details {
         text-align: center;
-        width: clamp(18rem, 50vw, 64rem);
-        max-width: 64rem;
-        gap: 1rem;
+        margin: 1.5rem 0;
+        border-radius: 1rem;
+        border-color: $color_green_dark;
 
-        .contact-details {
-            text-align: center;
-            margin: 1.5rem 0;
-            border-radius: 1rem;
-            border-color: $color_green_dark;
-
-            a {
-                text-decoration: underline;
-            }
+        a {
+            text-decoration: underline;
         }
     }
+}
 
-    @media (min-width: 48em) {
-        .contact-info {
+@media (min-width: 48em) {
+    .contact-info {
+        display: flex;
+        width: clamp(40rem, 75vw, 90rem);
+        height: auto;
+        flex-direction: row-reverse;
+
+        .contact-details {
+            width: clamp(18rem, 50vw, 30rem);
             display: flex;
-            width: clamp(40rem, 75vw, 90rem);
+            flex-direction: column;
+            justify-items: center;
+            justify-content: center;
+        }
+
+        #google-map {
+            width: clamp(18rem, 50vw, 30rem);
             height: auto;
-            flex-direction: row-reverse;
-
-            .contact-details {
-                width: clamp(18rem, 50vw, 30rem);
-                display: flex;
-                flex-direction: column;
-                justify-items: center;
-                justify-content: center;
-            }
-
-            #google-map {
-                width: clamp(18rem, 50vw, 30rem);
-                height: auto;
-            }
         }
     }
 }
