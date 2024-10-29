@@ -18,13 +18,13 @@ get_header();
         <?php if (function_exists('the_field')): ?>
 
             <!-- Hero Banner Section -->
-            <header class="hero-banner home-banner">
+            <header id="home-hero-banner" class="hero-banner home-banner">
                 <?php if (get_field('hero_banner')): ?>    
                     <?php 
                     $image = get_field('hero_banner');
                     $size = 'full';
                     if($image) {
-                        echo wp_get_attachment_image($image, $size);
+                        echo wp_get_attachment_image($image, $size, false, array('class' => 'home-hero-img'));
                     }
                     ?>
                 <?php endif; ?>
