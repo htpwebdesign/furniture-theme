@@ -7,9 +7,13 @@ header.hero-banner {
 
   img {
     width: 100%;
-    height: 100dvh;
+    height: 50dvh;
     object-fit: cover;
     filter: brightness(0.3);
+  }
+
+  .home-hero-img {
+    height: 100dvh;
   }
 
   .banner-content {
@@ -56,11 +60,12 @@ header.half-banner {
 
 // PRODUCTS PAGE
 
-header.woocommerce-products-header {
+header.woocommerce-products-header,
+.page .entry-header {
   height: 50vh;
   display: flex;
   // background-image: linear-gradient(to bottom, $color_green_dark, $color_white);
-  background-image: linear-gradient(to bottom, $color_brown, $color_white);
+  background-image: linear-gradient(to bottom, $color__text-main, $color_white);
 
   .banner-content {
     display: flex;
