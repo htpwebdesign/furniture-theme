@@ -76,7 +76,18 @@
   }
   h2 {
     position: absolute;
-    top: 0rem;
+    bottom: 0rem;
     left: 0rem;
+    margin: 0;
+    font-size: $fs-h4;
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    line-height: 1.2;
+    background-color: $color_light_gray;
+  }
+
+  a:hover {
+    color: $color_black;
   }
 }
