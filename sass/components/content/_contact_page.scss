@@ -1,92 +1,68 @@
-
 header.contact-banner {
     position: relative;
 
-             #contact-banner-text {
-                position: absolute;
-                margin-left: auto;
-                margin-right: auto;
-                top: 10rem;
-                left: 0;
-                right: 0;
-                text-align: center;
-                z-index: 10;
+    #contact-banner-text {
+        position: absolute;
+        margin-left: auto;
+        margin-right: auto;
+        top: 10rem;
+        left: 0;
+        right: 0;
+        text-align: center;
+        z-index: 10;
+    }
 
-                
+    .contact-info {
+        // display: flex;
+        border: double 2px;
+        border-radius: 1rem;
+        border-color: white;
+        background-color: $color_white;
+        padding: 0.5rem;
+        position: absolute;
+        margin-left: auto;
+        margin-right: auto;
+        top: 18rem;
+        left: 0;
+        right: 0;
+        text-align: center;
+        width: clamp(18rem, 50vw, 64rem);
+        max-width: 64rem;
+        gap: 1rem;
+
+        .contact-details {
+            text-align: center;
+            margin: 1.5rem 0;
+            border-radius: 1rem;
+            border-color: $color_green_dark;
+
+            a {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    @media (min-width: 48em) {
+        .contact-info {
+            display: flex;
+            width: clamp(40rem, 75vw, 90rem);
+            height: auto;
+            flex-direction: row-reverse;
+
+            .contact-details {
+                width: clamp(18rem, 50vw, 30rem);
+                display: flex;
+                flex-direction: column;
+                justify-items: center;
+                justify-content: center;
             }
 
-
-            .contact-info {
-                // display: flex;
-                border: double 2px;
-                border-radius: 1rem;
-                border-color: white;
-                background-color: $color_white;
-                backdrop-filter: blur(10px);
-                padding: .5rem;
-                position: absolute;
-                margin-left: auto;
-                margin-right: auto;
-                top: 18rem;
-                left: 0;
-                right: 0;
-                text-align: center;
-                width: clamp(18rem, 50vw, 64rem);
-                max-width: 64rem;
-                gap: 1rem;
-                    
-                        .contact-details {
-                            text-align: center;
-                            margin: 1.5rem 0;
-
-                                a {
-                                    text-decoration: underline;
-                                }
-                        }
-
+            #google-map {
+                width: clamp(18rem, 50vw, 30rem);
+                height: auto;
             }
-
-            // #google-map {
-
-            //     border: solid 2px;
-            //     border-radius: 1rem;
-            //     position: absolute;
-            //     margin-left: auto;
-            //     margin-right: auto;
-            //     top: 35rem;
-            //     left: 0;
-            //     right: 0;
-            //     width: clamp(18rem, 50vw, 64rem);
-            // }
-
-
-
-
-            @media (min-width: 48em) {
-
-              
-                .contact-info {
-                    display: flex;
-                    width: clamp(40rem, 75vw, 90rem);
-                    height: auto;
-                    flex-direction: row-reverse;
-                    
-                        .contact-details {
-                            width: clamp(18rem, 50vw, 30rem);
-                            display: flex;
-                            flex-direction: column;
-                            justify-items: center;
-                            justify-content: center;
-                        }
-
-                        #google-map {
-                            width: clamp(18rem, 50vw, 30rem);
-                            height: auto;
-                        }
-                }
-
-            }
-
+        }
+    }
 }
 
 .contact-form {
@@ -108,7 +84,6 @@ header.contact-banner {
         border: solid 2px;
         border-radius: 1rem;
         border-color: $color_green_dark;
-       
     }
 
     #gform_submit_button_1 {
