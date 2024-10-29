@@ -248,5 +248,26 @@ remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
  */
 add_action('woocommerce_archive_description', 'woocommerce_breadcrumb', 15);
 
+/**
+ *single product page hooks 
+ */
+//unsetting tabs
+function remove_product_tabs( $tabs ) {
+    unset( $tabs['description'] );
+    unset( $tabs['reviews'] );
+    unset( $tabs['additional_information'] );
+    return $tabs;
+}
+add_filter( 'woocommerce_product_tabs', 'remove_product_tabs', 98, 1 );
+
+//re adding product description and additional info
+add_action( 'woocommerce_before_single_product_summary', 'woocommerce_product_description_tab', 25 );
+add_action( 'woocommerce_before_single_product_summary', 'woocommerce_product_additional_information_tab', 26 );
 
 
+//disabling bundle stuff
+add_action('wp_enqueue_scripts', 'woocommerce_bundles_deregister_styles', 100);
+function woocommerce_bundles_deregister_styles() {
+	wp_deregister_style ('wc-bundle-css');
+	wp_dequeue_style ('wc-bundle-css');
+}

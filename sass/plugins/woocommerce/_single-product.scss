@@ -66,7 +66,10 @@
 .related-products .related .products {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: repeat(1, auto);
+  @media (min-width: 48em) {
+    grid-template-columns: repeat(3, auto);
+  }
   li {
     position: relative;
   }
@@ -89,6 +92,17 @@
 
   a:hover {
     color: $color_black;
+  }
+}
+//bundle specific styling
+.single-product {
+  .bundled_item_1 {
+    display: block;
+    margin: 0;
+  }
+  .bundled_product_title,
+  .bundled_product_images {
+    display: none;
   }
 }
 
