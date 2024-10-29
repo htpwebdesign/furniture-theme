@@ -91,3 +91,52 @@
     color: $color_black;
   }
 }
+
+.single-product {
+  div.product {
+    position: relative;
+
+    .woocommerce-product-gallery {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+
+      .woocommerce-product-gallery__trigger {
+        position: absolute;
+        top: 2em;
+        right: 1em;
+        z-index: 99;
+      }
+
+      .flex-viewport {
+        margin-bottom: 1em;
+      }
+
+      .flex-control-thumbs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5em;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+
+        li {
+          cursor: pointer;
+          flex: 0 0 calc(100% / var(--columns, 4) - 0.5em); /* Equal width for all items */
+          box-sizing: border-box;
+
+          img {
+            width: 100%; /* Ensure the image takes up the full width of the flex item */
+            opacity: 0.5;
+            transition: opacity 0.3s ease;
+
+            &.flex-active,
+            &:hover {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+}
