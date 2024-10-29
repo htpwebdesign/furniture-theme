@@ -66,7 +66,10 @@
 .related-products .related .products {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: repeat(1, auto);
+  @media (min-width: 48em) {
+    grid-template-columns: repeat(3, auto);
+  }
   li {
     position: relative;
   }
@@ -89,5 +92,65 @@
 
   a:hover {
     color: $color_black;
+  }
+}
+//bundle specific styling
+.single-product {
+  .bundled_item_1 {
+    display: block;
+    margin: 0;
+  }
+  .bundled_product_title,
+  .bundled_product_images {
+    display: none;
+  }
+}
+
+.single-product {
+  div.product {
+    position: relative;
+
+    .woocommerce-product-gallery {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+
+      .woocommerce-product-gallery__trigger {
+        position: absolute;
+        top: 2em;
+        right: 1em;
+        z-index: 99;
+      }
+
+      .flex-viewport {
+        margin-bottom: 1em;
+      }
+
+      .flex-control-thumbs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5em;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+
+        li {
+          cursor: pointer;
+          flex: 0 0 calc(100% / var(--columns, 4) - 0.5em); /* Equal width for all items */
+          box-sizing: border-box;
+
+          img {
+            width: 100%; /* Ensure the image takes up the full width of the flex item */
+            opacity: 0.5;
+            transition: opacity 0.3s ease;
+
+            &.flex-active,
+            &:hover {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
   }
 }
