@@ -41,7 +41,7 @@ get_header();
                     </div>
                     <!-- googlemaps shortcode -->
                     <div id="google-map" class="google-map" >
-                        <?php echo do_shortcode('[wpgmza id="1"]'); ?>
+                        <?php echo do_shortcode('[mappress mapid="1"]'); ?>
                     </div>
                 </section>
             </header>
