@@ -17,7 +17,6 @@
 
   li {
     position: relative;
-    @include bw-hover;
 
     a {
       h2 {
@@ -45,6 +44,11 @@
     }
   }
   @media (min-width: 48em) {
+
+    li {
+      @include bw-hover;
+    }
+
     li:nth-child(1) {
       order: 1;
       grid-row: span 13;
