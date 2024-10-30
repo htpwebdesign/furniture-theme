@@ -41,11 +41,23 @@
 			$furniture_theme_description = get_bloginfo( 'description', 'display' );
 			if ( $furniture_theme_description || is_customize_preview() ) :
 				?>
-				<p class="site-description"><?php echo $furniture_theme_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
+				<p class="site-description"><?php echo $furniture_theme_description; ?></p>
 			<?php endif; ?>
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">
+		     <?php
+			 wp_nav_menu(
+				array(
+					'theme_location' => 'menu-1',
+					'menu_id'        => 'primary-menu',
+				)
+			);
+				
+			if ( function_exists( 'furniture_theme_woocommerce_header_cart' ) ) {
+						furniture_theme_woocommerce_header_cart();
+					}
+				?>
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
 				<svg width="40px" height="40px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path d="M4 7L7 7M20 7L11 7" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
@@ -53,19 +65,5 @@
 					<path d="M4 12H7L20 12" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
 				</svg>
 			</button>
-				
-				<?php
-				wp_nav_menu(
-					array(
-						'theme_location' => 'menu-1',
-						'menu_id'        => 'primary-menu',
-					)
-				);
-				?>
-				<?php
-					if ( function_exists( 'furniture_theme_woocommerce_header_cart' ) ) {
-						furniture_theme_woocommerce_header_cart();
-					}
-				?>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
