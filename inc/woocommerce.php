@@ -289,3 +289,4 @@ function woocommerce_bundles_deregister_styles()
 	wp_deregister_style('wc-bundle-css');
 	wp_dequeue_style('wc-bundle-css');
 }
+
