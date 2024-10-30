@@ -167,6 +167,11 @@ add_action( 'wp_enqueue_scripts', 'furniture_theme_scripts' );
 require get_template_directory() . '/inc/custom-header.php';
 
 /**
+ * Custom login logo
+ */
+require get_template_directory() . '/inc/admin-customization.php';
+
+/**
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';
@@ -231,3 +236,15 @@ add_filter( 'woocommerce_product_tabs', 'remove_product_tabs', 98, 1 );
 add_action( 'woocommerce_before_single_product_summary', 'woocommerce_product_description_tab', 25 );
 //add_action( 'woocommerce_after_single_product_summary', 'woocommerce_product_additional_information_tab' );
 //add_action( 'woocommerce_after_single_product_summary', 'comments_template' );
+
+// Link the logo on the login page to the website
+
+function my_login_logo_url() {
+    return home_url();
+}
+add_filter( 'login_headerurl', 'my_login_logo_url' );
+
+function my_login_logo_url_title() {
+    return 'Driftwood Design';
+}
+add_filter( 'login_headertext', 'my_login_logo_url_title' );
