@@ -252,3 +252,63 @@ function my_toolbars( $toolbars )
     // return $toolbars - IMPORTANT!
     return $toolbars;
 }
+
+// Remove default widgets
+
+function wporg_remove_all_dashboard_metaboxes() {
+	// Remove Welcome panel
+	remove_action( 'welcome_panel', 'wp_welcome_panel' );
+	// Remove the rest of the dashboard widgets
+	remove_meta_box( 'dashboard_primary', 'dashboard', 'side' );
+	remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' );
+	remove_meta_box( 'health_check_status', 'dashboard', 'normal' );
+	remove_meta_box( 'dashboard_right_now', 'dashboard', 'normal' );
+	remove_meta_box( 'dashboard_activity', 'dashboard', 'normal');
+	remove_meta_box( 'rg_forms_dashboard', 'dashboard', 'normal');
+}
+add_action( 'wp_dashboard_setup', 'wporg_remove_all_dashboard_metaboxes' );
+
+/**
+ * Add a widget to the dashboard.
+ *
+ * This function is hooked into the 'wp_dashboard_setup' action below.
+ */
+function wporg_add_dashboard_widgets() {
+	wp_add_dashboard_widget(
+		'wporg_dashboard_widget1',                         // Widget slug.
+		esc_html__( 'How to add a Product', 'wporg' ), 	   // Title.
+		'wporg_dashboard_widget_render1'                    // Display function.
+	); 
+	wp_add_dashboard_widget(
+		'wporg_dashboard_widget2',                         // Widget slug.
+		esc_html__( 'How to add a Variant', 'wporg' ), 	   // Title.
+		'wporg_dashboard_widget_render2'                    // Display function.
+	); 
+	wp_add_dashboard_widget(
+		'wporg_dashboard_widget3',                         // Widget slug.
+		esc_html__( 'How to add an FAQ entry', 'wporg' ),  // Title.
+		'wporg_dashboard_widget_render3'                    // Display function.
+	); 
+}
+add_action( 'wp_dashboard_setup', 'wporg_add_dashboard_widgets' );
+
+function wporg_dashboard_widget_render1() {
+	// Display whatever you want to show.
+	esc_html_e( "Howdy! I'm a great Dashboard Widget.", "wporg" );
+}
+function wporg_dashboard_widget_render2() {
+	// Display whatever you want to show.
+	esc_html_e( "Howdy! I'm a great second Dashboard Widget.", "wporg" );
+}
+function wporg_dashboard_widget_render3() {
+	// Display whatever you want to show.
+	esc_html_e( "Howdy! I'm a great third Dashboard Widget.", "wporg" );
+}
+
+// Add Block Editor Styles
+
+function wpdocs_theme_add_editor_styles() {
+	add_editor_style( 'editor-style.css' );
+	add_theme_support( 'editor-styles' );
+}
+add_action( 'admin_init', 'wpdocs_theme_add_editor_styles' );
