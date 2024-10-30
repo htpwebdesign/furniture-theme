@@ -233,3 +233,22 @@ function my_login_logo_url_title() {
     return 'Driftwood Design';
 }
 add_filter( 'login_headertext', 'my_login_logo_url_title' );
+
+// Customize the toolbar on the WYSIWYG editor on FAQ
+add_filter( 'acf/fields/wysiwyg/toolbars' , 'my_toolbars'  );
+function my_toolbars( $toolbars )
+{
+    // Uncomment to view format of $toolbars
+    // echo '< pre >';
+    //     print_r($toolbars);
+    // echo '< /pre >';
+    // die;
+
+    // Add a new toolbar called "Very Simple"
+    // - this toolbar has only 1 row of buttons
+    $toolbars['Very Simple' ] = array();
+    $toolbars['Very Simple' ][1] = array('bold' , 'italic' , 'bullist', 'numlist', 'link' );
+
+    // return $toolbars - IMPORTANT!
+    return $toolbars;
+}
