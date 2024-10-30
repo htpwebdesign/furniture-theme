@@ -312,3 +312,40 @@ function wpdocs_theme_add_editor_styles() {
 	add_theme_support( 'editor-styles' );
 }
 add_action( 'admin_init', 'wpdocs_theme_add_editor_styles' );
+
+// Remove admin menu links for non-Administrator accounts
+function fwd_remove_admin_links() {
+	if ( !current_user_can( 'manage_options' ) ) {
+		remove_menu_page( 'edit.php' );           // Remove Posts link
+    	remove_menu_page( 'edit-comments.php' );  // Remove Comments link
+	}
+}
+add_action( 'admin_menu', 'fwd_remove_admin_links' );
+
+// Customize the WordPress Admin Menu
+function fwd_custom_menu_order( $menu_ord ) {
+    if ( !$menu_ord ) return true;
+
+    // Modify the following array to reorder the menu
+    // Add links, remove links, reorder links
+    return array(
+        'index.php',               				// Dashboard
+        'separator1',              				// First separator
+        'edit.php?post_type=product',           // Products
+        'upload.php',              				// Media
+        'edit.php?post_type=page', 				// Pages
+        'admin.php?page=site-globals', 			// Site Globals
+        'separator2',              				// Second separator
+		
+        'separator3',          					// Third separator
+        'themes.php',              				// Appearance
+        'plugins.php',             				// Plugins
+        'users.php',               				// Users
+        'tools.php',               				// Tools
+        'options-general.php',     				// Settings
+
+        'separator-last',          				// Last separator
+    );
+}
+add_filter( 'custom_menu_order', 'fwd_custom_menu_order', 10, 1 );
+add_filter( 'menu_order', 'fwd_custom_menu_order', 10, 1 );
