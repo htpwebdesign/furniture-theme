@@ -111,8 +111,10 @@ get_header();
                         <?php endforeach; ?>
                     </div>
                 <?php endif; ?>
-
+               
+                
                 <!-- Get a Quote CTA -->
+                <div class="cta-section">
                 <h2>Have a custom project in mind?</h2>
                 <?php if (get_field('request_quote_call_to_action')): ?>
                     <?php
@@ -128,7 +130,10 @@ get_header();
                         </a>
                     <?php endif; ?>
                 <?php endif; ?>
+                </div>
+
             </section>
+            
 
         <?php endif; ?>
 

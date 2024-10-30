@@ -18,7 +18,7 @@
 
 	<?php furniture_theme_post_thumbnail(); ?>
 
-	<div class="entry-content">
+	<div class="entry-content site-wide-margin">
 		<?php
 		the_content();
 

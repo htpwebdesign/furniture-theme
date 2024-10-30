@@ -1,5 +1,7 @@
 .single-collection-container {
   margin-bottom: 3rem;
+
+
   a {
     display: block;
     position: relative;
@@ -22,6 +24,14 @@
       color: $color_black;
       margin: 0;
     }
+
+    //focus styles 
+    &:focus-visible {
+      outline-style: double;
+      outline-width: 5px;
+      outline-color: $color__text-screen;
+
+  }
   }
 }
 
