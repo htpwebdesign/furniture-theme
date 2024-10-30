@@ -165,6 +165,9 @@
   all: unset;
   display: block;
   z-index: 1001;
+  svg {
+    margin-bottom: 10px;
+  }
 }
 
 .main-navigation {
