@@ -268,13 +268,13 @@ add_action('woocommerce_archive_description', 'woocommerce_breadcrumb', 15);
  *single product page hooks 
  */
 //unsetting tabs
-// function remove_product_tabs($tabs)
-// {
-// 	unset($tabs['description']);
-// 	unset($tabs['reviews']);
-// 	unset($tabs['additional_information']);
-// 	return $tabs;
-// }
+function remove_product_tabs($tabs)
+{
+	unset($tabs['description']);
+	unset($tabs['reviews']);
+	unset($tabs['additional_information']);
+	return $tabs;
+}
 add_filter('woocommerce_product_tabs', 'remove_product_tabs', 98, 1);
 
 //re adding product description and additional info
