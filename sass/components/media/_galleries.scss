@@ -47,6 +47,7 @@
       object-fit: cover;
       height: 100%;
       max-width: 100%;
+      @include bw-hover
     }
   }
   @media (min-width: 48em) {
