@@ -304,3 +304,11 @@ function wporg_dashboard_widget_render3() {
 	// Display whatever you want to show.
 	esc_html_e( "Howdy! I'm a great third Dashboard Widget.", "wporg" );
 }
+
+// Add Block Editor Styles
+
+function wpdocs_theme_add_editor_styles() {
+	add_editor_style( 'editor-style.css' );
+	add_theme_support( 'editor-styles' );
+}
+add_action( 'admin_init', 'wpdocs_theme_add_editor_styles' );
