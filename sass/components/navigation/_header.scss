@@ -359,6 +359,10 @@
   backdrop-filter: blur(10px);
   background-color: $color_light_gray;
 
+  & img.custom-logo {
+    filter: invert(1);
+  }
+
   &.site-header .main-navigation .nav-menu li a {
     color: $color_black;
   }
