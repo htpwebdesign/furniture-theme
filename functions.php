@@ -121,7 +121,6 @@ add_action('widgets_init', 'furniture_theme_widgets_init');
 function furniture_theme_scripts()
 {
 
-
 	//bringing in Quattrocento googlefont
 
 	wp_enqueue_style(
@@ -141,15 +140,33 @@ function furniture_theme_scripts()
 		_S_VERSION,
 		array('strategy' => 'defer')
 	);
-
-
+	wp_enqueue_script(
+		'furniture-theme-hamburger',
+		get_template_directory_uri() . '/js/hamburger.js',
+		array(),
+		_S_VERSION,
+		array('strategy' => 'defer')
+	);
 
 	wp_enqueue_style('furniture-theme-style', get_stylesheet_uri(), array(), _S_VERSION);
 	wp_style_add_data('furniture-theme-style', 'rtl', 'replace');
 
-	wp_enqueue_script('furniture-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
+	wp_enqueue_script('furniture-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, array('strategy' => 'defer'));
 
-	wp_enqueue_script('portfolio-header-scroll', get_template_directory_uri() . '/js/header.js', array(), _S_VERSION, true);
+	wp_enqueue_script('portfolio-header-scroll', get_template_directory_uri() . '/js/header.js', array(), _S_VERSION, array('strategy' => 'defer'));
+
+//for lightgallery 
+
+//only needed on front page so conditionally rendered
+
+if ( is_front_page() ) {
+    wp_enqueue_script( 'furniture_theme_lightgallery', get_template_directory_uri().'/js/lightgallery.umd.js', array(), '2024.10.30', array( 'strategy' => 'defer' )  );
+    wp_enqueue_script( 'furniture_theme_lightgallery_settings', get_template_directory_uri().'/js/lightgallery_settings.js', array(), '2024.10.30', array( 'strategy' => 'defer' )  );
+
+    wp_enqueue_style ( 'furniture_theme_style_lightgallery-main', get_template_directory_uri().'/css/lightgallery.css', array(), '2024.10.30' );
+    
+	wp_enqueue_style ( 'furniture_theme_style_lightgallery-plugins', get_template_directory_uri().'/css/lightgallery-bundle.css', array(), '2024.10.30' );
+}
 
 
 	if (is_singular() && comments_open() && get_option('thread_comments')) {

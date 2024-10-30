@@ -100,11 +100,14 @@ get_header();
 
                 <?php $home_page_gallery = get_field('home_page_gallery'); ?>
                 <?php if ($home_page_gallery): ?>
-                    <div class="gallery">
+                    <div id="lightgallery" class="gallery">
                         <?php foreach ($home_page_gallery as $each_image_id): ?>
-                            <article class="gallery-item ">
+                            <?php $image_src = wp_get_attachment_image_src($each_image_id, 'full') ?>
+                            <a href="<?php echo $image_src[0]?>" 
+                            data-src="<?php echo $image_src[0]?>"
+                            class="gallery-item ">
                                 <?php echo wp_get_attachment_image($each_image_id, 'full'); ?>
-                            </article>
+                        </a>
                         <?php endforeach; ?>
                     </div>
                 <?php endif; ?>

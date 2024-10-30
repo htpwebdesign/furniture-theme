@@ -16,12 +16,14 @@
   z-index: 1000;
   height: var(--header-height);
   padding: 0 $space-s-2xl;
+  transition: transform 0.3s ease;
 
   &span.count {
     color: $color_white;
   }
 
   svg {
+    cursor: pointer;
     g {
       fill: $color_white;
     }
@@ -162,6 +164,7 @@
 }
 
 .menu-toggle {
+  cursor: pointer;
   all: unset;
   display: block;
   z-index: 1001;
@@ -172,6 +175,7 @@
 
 .main-navigation {
   .nav-menu {
+    cursor: pointer;
     display: none;
     flex-direction: column;
     position: fixed;
@@ -356,6 +360,7 @@
 
 /* Scrolled header styles */
 .scrolled {
+  transition: color 0.5s;
   backdrop-filter: blur(10px);
   background-color: $color_light_gray;
 
