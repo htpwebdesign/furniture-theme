@@ -21,28 +21,28 @@
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  transition: .3s ease-in-out;
+  transition: 0.3s ease-in-out;
 
-    &:focus,
-    &:hover {
-     transform: scale(1.01);
-     filter:brightness(1.5);
-     border: 2px;
-     border-color: $color_white;
-     text-shadow: 1px 1px 1px $color_black;
-    }
+  &:focus,
+  &:hover {
+    transform: scale(1.01);
+    filter: brightness(1.5);
+    border: 2px;
+    border-color: $color_white;
+    text-shadow: 1px 1px 1px $color_black;
   }
+}
 
 @mixin site-margins {
   margin: 0 $space-s-2xl;
 }
 
 @mixin bw-hover {
-  transition: .5s ease-in-out;
-  filter: brightness(0.7);  
+  transition: 0.5s ease-in-out;
+  filter: brightness(0.7);
 
-    &:hover {
-      transform: scale(1.01);
-      filter: brightness(1);
-    }
+  &:hover {
+    transform: scale(1.01);
+    filter: brightness(1);
+  }
 }

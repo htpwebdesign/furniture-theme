@@ -6,6 +6,7 @@
   h1 {
     //asign this in topography?
     margin: 0;
+    font-size: $fs-h2;
   }
   .entry-information {
     h2 {
@@ -47,7 +48,7 @@
     .product {
       display: grid;
       gap: 1rem;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 60% 40%;
     }
     .related-products {
       grid-column: span 2;
@@ -55,10 +56,12 @@
   }
 
   .flex-control-nav {
-    justify-content: space-between;
     li {
       max-width: 4rem;
     }
+  }
+  .shop_attributes {
+    text-align: left;
   }
 }
 //very specific overrides
@@ -79,24 +82,33 @@
   }
   li {
     position: relative;
+    height: 25rem;
   }
   img {
     height: 25rem;
     object-fit: cover;
   }
-  h2 {
-    position: absolute;
-    bottom: 0rem;
-    left: 0rem;
-    margin: 0;
-    font-size: $fs-h4;
-    display: block;
-    width: 100%;
-    padding: 0.5rem;
-    line-height: 1.2;
-    background-color: $color_light_gray;
+  a {
+    h2 {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      margin: 0;
+      line-height: 1.2;
+      font-size: $fs-h4;
+      display: block;
+      padding: 0.5rem;
+      background-color: $color_light_gray;
+      text-align: center;
+    }
   }
 
+  @media (min-width: 48em) {
+    li {
+      @include bw-hover;
+    }
+  }
   a:hover {
     color: $color_black;
   }
