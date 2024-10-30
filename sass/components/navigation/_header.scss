@@ -1,9 +1,12 @@
 :root {
   --header-height: 100px;
 }
+.preload * { 
+  transition: none !important;
+  animation-duration: 0.001s !important; 
+}
 
 .site-header {
-  // background-color: $color_green_dark;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -83,7 +86,7 @@
           transition: color 0.3s;
 
           &:hover {
-            color: $color_black
+            color: $color_black;
           }
         }
       }
@@ -95,16 +98,14 @@
     }
   }
 
-
   .site-header-cart {
     margin-left: 10px;
-    position: relative; 
+    position: relative;
 
     li {
       list-style: none;
     }
 
-  
     .cart-contents {
       display: flex;
       flex-direction: column;
@@ -125,38 +126,33 @@
       }
     }
 
-   
     .widget_shopping_cart {
-      display: none; 
+      display: none;
       background-color: $color_white;
       padding: 20px;
       border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 12px $color_black;
       position: absolute;
-      top: 100%; 
+      top: 100%;
       right: 0;
-      transform: translateY(20px); 
+      transform: translateY(20px);
       transition: all 0.3s ease;
       z-index: 10000;
-      max-height: 400px; 
-      overflow-y: auto; 
+      max-height: 400px;
+      overflow-y: auto;
     }
 
-    
     &:hover .widget_shopping_cart {
-      display: block; 
+      display: block;
       transform: translateY(0);
     }
   }
 
- 
   @media (hover: none) and (pointer: coarse) {
     .site-header-cart:hover .widget_shopping_cart {
-      display: none; 
+      display: none;
     }
   }
-
-
 }
 
 .site-header-actions {
@@ -186,7 +182,7 @@
     justify-content: center;
     align-items: center;
     transform: translateY(-100%);
-    // transition: transform 0.5s ease;
+    transition: transform 0.5s ease;
     z-index: -1;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -217,21 +213,19 @@
 @media (min-width: 48em) {
   .widget.woocommerce.widget_shopping_cart {
     width: 600px;
-  
+
     .widget_shopping_cart_content {
       padding: 15px;
     }
-  
-    .woocommerce-mini-cart-item {
 
+    .woocommerce-mini-cart-item {
       display: flex;
       align-items: center;
       gap: 10px;
       margin-bottom: 10px;
       border-bottom: 1px solid $color_white;
       padding-bottom: 10px;
-  
-      
+
       .remove.remove_from_cart_button {
         width: 20px;
         height: 20px;
@@ -243,46 +237,44 @@
         color: $color_black;
         text-decoration: none;
         cursor: pointer;
-        position: absolute;         
-        left: 0;                    
-  
+        position: absolute;
+        left: 0;
+
         &:hover {
           color: $color_green_med;
         }
       }
-  
-      
+
       a {
         display: flex;
         align-items: center;
         text-decoration: none;
         color: $color_black;
         font-size: 0.85rem;
-        margin-left: 35px;          
-  
+        margin-left: 35px;
+
         &:hover {
           color: $color_green_med;
         }
-  
+
         img {
           width: 50px;
           height: auto;
           border-radius: 8px;
           object-fit: cover;
-          margin-right: 10px;       
+          margin-right: 10px;
         }
       }
-  
 
       .quantity {
-        margin-left: auto;          
+        margin-left: auto;
         font-size: 0.85rem;
         color: $color_black;
-        position: absolute;         
-        right: 25px;               
+        position: absolute;
+        right: 25px;
       }
     }
-  
+
     .woocommerce-mini-cart__total {
       font-size: 0.9rem;
       color: $color_black;
@@ -290,29 +282,26 @@
       padding-top: 10px;
       border-top: 1px solid $color_white;
     }
-  
+
     .woocommerce-mini-cart__buttons {
       display: flex;
       justify-content: space-between;
       margin-top: 10px;
-  
+
       .button {
         padding: 8px 12px;
         font-size: 0.85rem;
         border-radius: 5px;
         background-color: $color_green_med;
         color: $color_white;
-  
+
         &:hover {
           background-color: $color_black;
         }
       }
     }
   }
-  
 
-  
-  
   .custom-logo-link img {
     max-width: 60px;
     height: auto;
@@ -334,7 +323,6 @@
 
   .site-header {
     height: auto;
-    // background-color: $color_green_dark;
 
     .main-navigation {
       .nav-menu {
