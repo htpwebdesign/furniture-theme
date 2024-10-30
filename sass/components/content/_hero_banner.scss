@@ -63,7 +63,6 @@ header.half-banner {
 header.woocommerce-products-header,
 .page .entry-header,
 .single-product .entry-header {
-
   height: clamp(40vh, 50vw, 50vh);
   display: flex;
   // background-image: linear-gradient(to bottom, $color_green_dark, $color_white);
@@ -90,29 +89,24 @@ header.woocommerce-products-header,
   }
 }
 .single-product .entry-header {
-  height: 30vh;
+  height: 15vh;
 }
 
-
-//faq page banner 
+//faq page banner
 
 #faq-banner {
+  height: clamp(30vh, 50vw, 50vh);
+  display: flex;
+  // background-image: linear-gradient(to bottom, $color_green_dark, $color_white);
+  background-image: linear-gradient(to bottom, $color__text-main, $color_white);
 
-    height: clamp(30vh, 50vw, 50vh);
+  .banner-content {
     display: flex;
-    // background-image: linear-gradient(to bottom, $color_green_dark, $color_white);
-    background-image: linear-gradient(to bottom, $color__text-main, $color_white);
-  
+    flex-direction: column-reverse;
+    margin: $space-s-2xl;
 
-    .banner-content {
-      display: flex;
-      flex-direction: column-reverse;
-      margin: $space-s-2xl;
-
-
-      h1 {
-        margin: unset;
-      }
-  
+    h1 {
+      margin: unset;
     }
+  }
 }
