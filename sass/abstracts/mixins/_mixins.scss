@@ -23,6 +23,10 @@
   display: inline-block;
   transition: 0.3s ease-in-out;
 
+  margin-bottom: 4rem;
+
+
+
   &:focus,
   &:hover {
     transform: scale(1.01);
@@ -30,6 +34,11 @@
     border: 2px;
     border-color: $color_white;
     text-shadow: 1px 1px 1px $color_black;
+  }
+}
+
+  @media screen and (min-width: $desktop_break) {
+    margin-bottom: 0;
   }
 }
 
