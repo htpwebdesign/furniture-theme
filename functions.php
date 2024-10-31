@@ -322,15 +322,15 @@ add_action( 'wp_dashboard_setup', 'wporg_add_dashboard_widgets' );
 
 function wporg_dashboard_widget_render1() {
 	// Display whatever you want to show.
-	esc_html_e( "Howdy! I'm a great Dashboard Widget.", "wporg" );
+	echo '<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1025172096?h=b97141b528&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="How to add a Product"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>';
 }
 function wporg_dashboard_widget_render2() {
 	// Display whatever you want to show.
-	esc_html_e( "Howdy! I'm a great second Dashboard Widget.", "wporg" );
+	echo '<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1025180417?h=f1e481aae4&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="New Recording - 10/31/2024, 9:43:31 AM"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>';
 }
 function wporg_dashboard_widget_render3() {
 	// Display whatever you want to show.
-	esc_html_e( "Howdy! I'm a great third Dashboard Widget.", "wporg" );
+	echo '<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1025176316?h=0fd4b1ba8b&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="How to"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>';
 }
 
 // Add Block Editor Styles
