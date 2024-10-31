@@ -1,6 +1,7 @@
 :root {
   --header-height: 100px;
 }
+
 .preload * { 
   transition: none !important;
   animation-duration: 0.001s !important; 
@@ -16,21 +17,16 @@
   z-index: 1000;
   height: var(--header-height);
   padding: 0 $space-s-2xl;
-  transition: transform 0.3s ease;
 
-  &span.count {
-    color: $color_white;
-  }
+  .menu-toggle {
+    all: unset;
+    display: block;
+    z-index: 1001;
 
-  svg {
-    cursor: pointer;
-    g {
-      fill: $color_white;
+    svg path { 
+      margin-bottom: 5px;
+      stroke: $color_white;
     }
-  }
-
-  .menu-toggle svg path {
-    stroke: $color_white;
   }
 
   .site-branding {
@@ -67,24 +63,40 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-top: 10px;
-      margin-bottom: 10px;
+      margin: 10px 0;
     }
 
     .nav-menu {
       display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60vh;
+      padding-top: var(--header-height);
+      margin-top: 111px;
+      background-color: $color_green_dark;
+      justify-content: center;
+      align-items: center;
+      transform: translateY(-100%);
+      transition: transform 0.5s ease;
+      z-index: -1;
+      border-radius: 0 0 10px 10px;
       list-style: none;
       margin: 0;
       padding: 0;
-
+      
       li {
+        margin: 10px 0;
         margin-left: 20px;
-        list-style: none;
 
         a {
           text-decoration: none;
           color: $color_white;
           font-weight: bold;
+          font-size: 1.2rem;
+          text-transform: uppercase;
           transition: color 0.3s;
 
           &:hover {
@@ -96,7 +108,7 @@
 
     &.active .nav-menu {
       display: flex;
-      flex-direction: column;
+      transform: translateY(0);
     }
   }
 
@@ -114,12 +126,10 @@
       align-items: center;
       text-align: center;
       position: relative;
-      margin-top: 10px;
-      margin-bottom: 10px;
-      margin-left: 10px;
 
-      svg {
-        margin-bottom: 5px;
+      svg g {
+        margin-bottom: 10px;
+        fill: $color_white;
       }
 
       .count {
@@ -157,67 +167,30 @@
   }
 }
 
-.site-header-actions {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.menu-toggle {
-  cursor: pointer;
-  all: unset;
-  display: block;
-  z-index: 1001;
-  svg {
-    margin-bottom: 10px;
-  }
-}
-
-.main-navigation {
-  .nav-menu {
-    cursor: pointer;
-    display: none;
-    flex-direction: column;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 60vh;
-    padding-top: var(--header-height);
-    margin-top: 111px;
-    background-color: $color_green_dark;
-    justify-content: center;
-    align-items: center;
-    transform: translateY(-100%);
-    transition: transform 0.5s ease;
-    z-index: -1;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-  }
-
-  .nav-menu li {
-    margin: 10px 0;
-  }
-
-  .nav-menu a {
-    color: $color_black;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    transition: color 0.3s;
-
-    &:hover {
-      color: $color_green_dark;
+@media (min-width: 48em) {
+  .scrolled {
+    backdrop-filter: blur(10px);
+    background-color: $color_light_gray;
+  
+    &.site-header .main-navigation .nav-menu li a {
+      color: $color_black;
+    }
+  
+    &.site-header .site-header-cart .cart-contents {
+      .count {
+        color: $color_black;
+      }
+  
+      svg g {
+        fill: $color_black;
+      }
+    }
+  
+    &.site-header .menu-toggle svg path {
+      stroke: $color_black;
     }
   }
 
-  &.active .nav-menu {
-    display: flex;
-    transform: translateY(0);
-  }
-}
-
-/* Desktop styles */
-@media (min-width: 48em) {
   .widget.woocommerce.widget_shopping_cart {
     width: 600px;
 
@@ -240,9 +213,7 @@
         align-items: center;
         justify-content: center;
         font-size: 1rem;
-        text-align: center;
         color: $color_black;
-        text-decoration: none;
         cursor: pointer;
         position: absolute;
         left: 0;
@@ -255,7 +226,6 @@
       a {
         display: flex;
         align-items: center;
-        text-decoration: none;
         color: $color_black;
         font-size: 0.85rem;
         margin-left: 35px;
@@ -266,7 +236,6 @@
 
         img {
           width: 50px;
-          height: auto;
           border-radius: 8px;
           object-fit: cover;
           margin-right: 10px;
@@ -309,80 +278,33 @@
     }
   }
 
-  .custom-logo-link img {
-    max-width: 60px;
-    height: auto;
-  }
-
-  .site-title {
-    margin-left: 10px;
-    font-size: 1.2rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    color: $color_black;
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-  }
-
   .site-header {
     height: auto;
 
-    .main-navigation {
-      .nav-menu {
-        gap: 20px;
-        display: flex;
-        flex-direction: row;
-        transform: unset;
-        height: auto;
-        background-color: unset;
-        position: static;
-        z-index: 1000;
-
-        li {
-          margin: 0;
-
-          a {
-            line-height: 5.0625rem;
-          }
+    .main-navigation .nav-menu {
+      gap: 20px;
+      display: flex;
+      flex-direction: row;
+      transform: unset;
+      height: auto;
+      background-color: unset;
+      position: static;
+      z-index: 1000;
+      
+      li { 
+        margin-top: 10px; 
+        a {
+          line-height: 5.0625rem;
         }
       }
+    }
+
+    .site-header-cart .cart-contents svg {
+      margin-bottom: 30px;
     }
 
     .menu-toggle {
       display: none;
     }
-  }
-}
-
-/* Scrolled header styles */
-.scrolled {
-  transition: color 0.5s;
-  backdrop-filter: blur(10px);
-  background-color: $color_light_gray;
-
-  & img.custom-logo {
-    filter: invert(1);
-  }
-
-  &.site-header .main-navigation .nav-menu li a {
-    color: $color_black;
-  }
-
-  &.site-header .site-header-cart .cart-contents {
-    .count {
-      color: $color_black;
-    }
-
-    svg g {
-      fill: $color_black;
-    }
-  }
-
-  &.site-header .menu-toggle svg path {
-    stroke: $color_black;
   }
 }
