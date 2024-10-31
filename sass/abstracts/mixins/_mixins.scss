@@ -22,10 +22,7 @@
   text-decoration: none;
   display: inline-block;
   transition: 0.3s ease-in-out;
-
   margin-bottom: 4rem;
-
-
 
   &:focus,
   &:hover {
@@ -35,7 +32,6 @@
     border-color: $color_white;
     text-shadow: 1px 1px 1px $color_black;
   }
-}
 
   @media screen and (min-width: $desktop_break) {
     margin-bottom: 0;
