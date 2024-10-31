@@ -21,6 +21,11 @@ section.accordion-wrapper {
         position: relative;
         width: clamp(18rem, 50vw, 64rem);
         max-width: 64rem;
+        
+        &:focus-visible {
+            outline: auto;
+            outline-color: $color__text-screen;
+        }
 
         /* Arrow or X Icon on open / close */
         &:after {

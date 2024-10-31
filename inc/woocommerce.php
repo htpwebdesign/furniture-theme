@@ -248,12 +248,6 @@ remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add
 remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10);
 
 
-//Turns out changing the woocommerce thumbnail size to "full" works, so this is no longer needed 
-
-// add_filter( 'single_product_archive_thumbnail_size', function( $size ) {
-//     return 'full';
-// } );
-
 /**
  * Remove default WooCommerce breadcrumb from before main content
  */
