@@ -1,8 +1,7 @@
-
-lightGallery(document.getElementById('lightgallery'), {
-    licenseKey: "0000-0000-000-0000",
+lightGallery(document.getElementById("lightgallery"), {
+    licenseKey: api_key.key,
     speed: 500,
-    mode: 'lg-fade',
+    mode: "lg-fade",
     download: false,
     // ... other settings
 });

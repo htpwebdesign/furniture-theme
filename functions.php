@@ -166,6 +166,12 @@ if ( is_front_page() ) {
     wp_enqueue_style ( 'furniture_theme_style_lightgallery-main', get_template_directory_uri().'/css/lightgallery.css', array(), '2024.10.30' );
     
 	wp_enqueue_style ( 'furniture_theme_style_lightgallery-plugins', get_template_directory_uri().'/css/lightgallery-bundle.css', array(), '2024.10.30' );
+
+	wp_localize_script( 'furniture_theme_lightgallery_settings', 'api_key',
+		array( 
+			'key' => lightgallery_key,
+		)
+	);
 }
 
 
@@ -215,6 +221,11 @@ if (defined('JETPACK__VERSION')) {
 if (class_exists('WooCommerce')) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
+
+
+//lightgallery key env file
+
+require get_template_directory() . '/inc/env.php';
 
 // turning off block editor for certain pages so client can't add extra content/break layout
 
