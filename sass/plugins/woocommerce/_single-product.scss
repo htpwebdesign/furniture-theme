@@ -1,175 +1,200 @@
 .single-product {
-  .product {
-    margin: 0 $space-s-2xl; //margin variable?
-  }
-  /* the following is unsetting stuff from other pages, could probably be refactored */
-  h1 {
-    //asign this in topography?
-    margin: 0;
-    font-size: $fs-h2;
-  }
-  .entry-information {
-    h2 {
-      display: none;
-    }
-  }
-  .entry-summary {
-    margin: 0;
-    border: 1.5px solid black;
-    padding: 0.5rem;
-
-    .woocommerce-variation-add-to-cart {
-      max-width: 26rem;
-    }
-
-    .payment_method_stripe_googlepay,
-    .payment_method_stripe_applepay {
-      max-width: 100%;
-    }
-  }
-  .quantity {
-    margin: 1rem 0;
-    input {
-      background-color: $color__background-body;
-      display: block;
-      width: 100%;
-      border: 2px $color_black solid;
-    }
-  }
-  .single_add_to_cart_button {
-    display: block;
-    width: 100%;
-    margin: 1rem 0;
-    background-color: $color__background-body;
-    border: 2px $color_black solid;
-  }
-
-  @media (min-width: 48em) {
     .product {
-      display: grid;
-      gap: 1rem;
-      grid-template-columns: 60% 40%;
+        margin: 0 $space-s-2xl; //margin variable?
     }
-    .related-products {
-      grid-column: span 2;
-    }
-  }
-
-  .flex-control-nav {
-    li {
-      max-width: 4rem;
-    }
-  }
-  .shop_attributes {
-    text-align: left;
-  }
-}
-//very specific overrides
-#page .related-products .products,
-.single-product .related-products .product {
-  //ul has a very high specificity for some reason
-  margin: 0;
-}
-.related-products .product {
-  all: unset;
-}
-.related-products .related .products {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(1, auto);
-  @media (min-width: 48em) {
-    grid-template-columns: repeat(3, auto);
-  }
-  li {
-    position: relative;
-    height: 25rem;
-  }
-  img {
-    height: 25rem;
-    object-fit: cover;
-  }
-  a {
-    h2 {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      margin: 0;
-      line-height: 1.2;
-      font-size: $fs-h4;
-      display: block;
-      padding: 0.5rem;
-      background-color: $color_light_gray;
-      text-align: center;
-    }
-  }
-
-  @media (min-width: 48em) {
-    li {
-      @include bw-hover;
-    }
-  }
-  a:hover {
-    color: $color_black;
-  }
-}
-//bundle specific styling
-.single-product {
-  .bundled_item_1 {
-    display: block;
-    margin: 0;
-  }
-  .bundled_product_title,
-  .bundled_product_images {
-    display: none;
-  }
-}
-
-.single-product {
-  div.product {
-    position: relative;
-
-    .woocommerce-product-gallery {
-      display: flex;
-      flex-direction: column;
-      position: relative;
-
-      .woocommerce-product-gallery__trigger {
-        position: absolute;
-        top: 2em;
-        right: 1em;
-        z-index: 99;
-      }
-
-      .flex-viewport {
-        margin-bottom: 1em;
-      }
-
-      .flex-control-thumbs {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5em;
-        padding: 0;
+    /* the following is unsetting stuff from other pages, could probably be refactored */
+    h1 {
+        //asign this in topography?
         margin: 0;
-        list-style: none;
-
-        li {
-          cursor: pointer;
-          flex: 0 0 calc(100% / var(--columns, 4) - 0.5em); /* Equal width for all items */
-          box-sizing: border-box;
-
-          img {
-            width: 100%; /* Ensure the image takes up the full width of the flex item */
-            opacity: 0.5;
-            transition: opacity 0.3s ease;
-
-            &.flex-active,
-            &:hover {
-              opacity: 1;
-            }
-          }
+        font-size: $fs-h2;
+    }
+    .entry-information {
+        h2 {
+            display: none;
         }
+    }
+    .entry-summary {
+        margin: 0;
+        border: 1.5px solid black;
+        padding: 0.5rem;
+
+        .woocommerce-variation-add-to-cart {
+            max-width: 26rem;
+        }
+
+        .payment_method_stripe_googlepay,
+        .payment_method_stripe_applepay {
+            transition: all 0.4s ease-in-out;
+            max-width: 100%;
+        }
+    }
+    .quantity {
+        margin: 1rem 0;
+        input {
+            background-color: $color__background-body;
+            display: block;
+            width: 100%;
+            border: 2px $color_black solid;
+        }
+    }
+    .single_add_to_cart_button {
+        display: block;
+        cursor: pointer;
+        width: 100%;
+        margin: 1rem 0;
+        background-color: $color__background-body;
+        border: 2px $color_black solid;
+        transition: all 0.4s ease-in-out;
+
+        &:visited {
+            color: $color__link-hover;
+        }
+
+        &:focus-visible {
+            outline: solid;
+            outline-width: 4px;
+            outline-color: $color__text-screen;
+        }
+    }
+
+        @media (min-width: 48em) {
+            .product {
+                display: grid;
+                gap: 1rem;
+                grid-template-columns: 60% 40%;
+            }
+            .related-products {
+                grid-column: span 2;
+            }
+        }
+
+        .flex-control-nav {
+            li {
+                max-width: 4rem;
+            }
+        }
+        .shop_attributes {
+            text-align: left;
+        }
+    }
+    //very specific overrides
+    #page .related-products .products,
+    .single-product .related-products .product {
+        //ul has a very high specificity for some reason
+        margin: 0;
+    }
+    .related-products .product {
+        all: unset;
+    }
+    .related-products .related .products {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(1, auto);
+        @media (min-width: 48em) {
+            grid-template-columns: repeat(3, auto);
+        }
+        li {
+            position: relative;
+            height: 25rem;
+        }
+        img {
+            height: 25rem;
+            object-fit: cover;
+        }
+        a {
+            h2 {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                left: 0;
+                margin: 0;
+                line-height: 1.2;
+                font-size: $fs-h4;
+                display: block;
+                padding: 0.5rem;
+                background-color: $color_light_gray;
+                text-align: center;
+            }
+        }
+
+        @media (min-width: 48em) {
+            li {
+                @include bw-hover;
+            }
+        }
+        a:hover {
+            color: $color_black;
+        }
+    }
+    //bundle specific styling
+    .single-product {
+        .bundled_item_1 {
+            display: block;
+            margin: 0;
+        }
+        .bundled_product_title,
+        .bundled_product_images {
+            display: none;
+        }
+    }
+
+    .single-product {
+        div.product {
+            position: relative;
+
+            .woocommerce-product-gallery {
+                display: flex;
+                flex-direction: column;
+                position: relative;
+
+                .woocommerce-product-gallery__trigger {
+                    position: absolute;
+                    top: 2em;
+                    right: 1em;
+                    z-index: 99;
+                }
+
+                .flex-viewport {
+                    margin-bottom: 1em;
+                }
+
+                .flex-control-thumbs {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 0.5em;
+                    padding: 0;
+                    margin: 0;
+                    list-style: none;
+
+                    li {
+                        cursor: pointer;
+                        flex: 0 0 calc(100% / var(--columns, 4) - 0.5em); /* Equal width for all items */
+                        box-sizing: border-box;
+
+                        img {
+                            width: 100%; /* Ensure the image takes up the full width of the flex item */
+                            opacity: 0.5;
+                            transition: opacity 0.3s ease;
+
+                            &.flex-active,
+                            &:hover {
+                                opacity: 1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+//focus states for stripes g-pay button
+
+    .gpay-card-info-container-fill .gpay-button-container,
+    #gpay-button-online-api-id {
+      :focus
+      &:focus-visible {
+          outline: solid;
+          outline-width: 4px;
+          outline-color: $color__text-screen;
       }
     }
-  }
-}

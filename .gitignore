@@ -80,6 +80,7 @@ package-lock.json
 .eslintrc.js
 
 
+
 # Misc files #
 ########################
 
@@ -92,7 +93,7 @@ package-lock.json
 *.swp
 *.vi
 *~
-
+env.php
 
 # Ignore compiled CSS from repository #
 #####################

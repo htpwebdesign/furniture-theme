@@ -1,27 +1,25 @@
 a {
-	color: $color__link;
-	text-decoration: none;
-	text-shadow: none;
-	transition: color 0.4s ease-in-out ;
+    color: $color__link;
+    text-decoration: none;
+    text-shadow: none;
+    transition: all 0.4s ease-in-out;
 
-	&:visited {
-		color: $color__link-visited;
-	}
+    &:visited {
+        color: $color__link-visited;
+    }
 
-	&:hover,
-	&:focus,
-	&:active {
-		color: $color__link-hover;
+    &:hover,
+    &:focus,
+    &:active {
+        color: $color__link-hover;
+    }
 
-	}
+    &:focus {
+        outline: thin dotted;
+    }
 
-	&:focus {
-		outline: thin dotted;
-	}
-
-	&:hover,
-	&:active {
-		outline: 0;
-	}
+    &:hover,
+    &:active {
+        outline: 0;
+    }
 }
-

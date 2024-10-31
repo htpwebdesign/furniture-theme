@@ -1,6 +1,5 @@
-:root {
-  --header-height: 100px;
-}
+
+//needed to stop the menu animation firing on page load
 
 .preload * {
   transition: none !important;
@@ -15,16 +14,16 @@
   top: 0;
   width: 100%;
   z-index: 1000;
-  height: var(--header-height);
+  height: $header-height;
   padding: 0 $space-s-2xl;
 
   .menu-toggle {
     all: unset;
     display: block;
     z-index: 1001;
+    cursor: pointer;
 
     svg path {
-      margin-bottom: 5px;
       stroke: $color_white;
     }
   }
@@ -56,7 +55,7 @@
 
   .main-navigation {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     gap: 1rem;
 
     .menu-menu-1-container {
@@ -74,9 +73,9 @@
       left: 0;
       width: 100%;
       height: 60vh;
-      padding-top: var(--header-height);
+      padding-top: $header-height;
       margin-top: 111px;
-      background-color: $color_green_dark;
+      background-color: $color__border-abbr;
       justify-content: center;
       align-items: center;
       transform: translateY(-100%);
@@ -160,21 +159,48 @@
     }
   }
 
-  @media (hover: none) and (pointer: coarse) {
-    .site-header-cart:hover .widget_shopping_cart {
-      display: none;
-    }
-  }
-}
-
-@media (min-width: 48em) {
-  .scrolled {
+  &.scrolled {
     backdrop-filter: blur(10px);
     background-color: $color_light_gray;
+
+    &.site-header .site-branding img.custom-logo {
+        filter: invert(1);
+      }
+
 
     &.site-header .main-navigation .nav-menu li a {
       color: $color_black;
     }
+
+//making sure that the menu stays white when hamburger is opened
+
+    &.site-header.toggled .main-navigation .nav-menu li a {
+      color: $color_white;
+
+    }
+
+    &.site-header.toggled .site-branding img.custom-logo {
+        filter: invert(0);
+      }  
+
+    &.site-header.toggled .site-header-cart .cart-contents {
+      .count {
+        color: $color_white;
+      }
+      }    
+
+    &.site-header.toggled .main-navigation.active svg  {
+      color: $color_white;
+
+      & g {
+        fill: $color_white;;
+      }
+      
+      & path {
+        stroke: $color_white;
+      }
+    }
+
 
     &.site-header .site-header-cart .cart-contents {
       .count {
@@ -191,6 +217,16 @@
     }
   }
 
+
+  @media (hover: none) and (pointer: coarse) {
+    .site-header-cart:hover .widget_shopping_cart {
+      display: none;
+    }
+  }
+}
+
+@media (min-width: 48em) {
+  
   .widget.woocommerce.widget_shopping_cart {
     width: 600px;
 
