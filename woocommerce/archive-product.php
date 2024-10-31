@@ -55,6 +55,9 @@ if (woocommerce_product_loop()) {
 	// custom code for shop page start here 
 	
 	if (is_tax()) {
+		if(is_tax("product_cat", "living-room")) {
+			echo do_shortcode("[react-furniture-explorer]");
+		}
 		woocommerce_product_loop_start();
 		
 			if (wc_get_loop_prop('total')) {
