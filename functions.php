@@ -140,13 +140,6 @@ function furniture_theme_scripts()
 		_S_VERSION,
 		array('strategy' => 'defer')
 	);
-	wp_enqueue_script(
-		'furniture-theme-hamburger',
-		get_template_directory_uri() . '/js/hamburger.js',
-		array(),
-		_S_VERSION,
-		array('strategy' => 'defer')
-	);
 
 	wp_enqueue_style('furniture-theme-style', get_stylesheet_uri(), array(), _S_VERSION);
 	wp_style_add_data('furniture-theme-style', 'rtl', 'replace');
@@ -155,24 +148,26 @@ function furniture_theme_scripts()
 
 	wp_enqueue_script('portfolio-header-scroll', get_template_directory_uri() . '/js/header.js', array(), _S_VERSION, array('strategy' => 'defer'));
 
-//for lightgallery 
+	//for lightgallery 
 
-//only needed on front page so conditionally rendered
+	//only needed on front page so conditionally rendered
 
-if ( is_front_page() ) {
-    wp_enqueue_script( 'furniture_theme_lightgallery', get_template_directory_uri().'/js/lightgallery.umd.js', array(), '2024.10.30', array( 'strategy' => 'defer' )  );
-    wp_enqueue_script( 'furniture_theme_lightgallery_settings', get_template_directory_uri().'/js/lightgallery_settings.js', array(), '2024.10.30', array( 'strategy' => 'defer' )  );
+	if (is_front_page()) {
+		wp_enqueue_script('furniture_theme_lightgallery', get_template_directory_uri() . '/js/lightgallery.umd.js', array(), '2024.10.30', array('strategy' => 'defer'));
+		wp_enqueue_script('furniture_theme_lightgallery_settings', get_template_directory_uri() . '/js/lightgallery_settings.js', array(), '2024.10.30', array('strategy' => 'defer'));
 
-    wp_enqueue_style ( 'furniture_theme_style_lightgallery-main', get_template_directory_uri().'/css/lightgallery.css', array(), '2024.10.30' );
-    
-	wp_enqueue_style ( 'furniture_theme_style_lightgallery-plugins', get_template_directory_uri().'/css/lightgallery-bundle.css', array(), '2024.10.30' );
+		wp_enqueue_style('furniture_theme_style_lightgallery-main', get_template_directory_uri() . '/css/lightgallery.css', array(), '2024.10.30');
 
-	wp_localize_script( 'furniture_theme_lightgallery_settings', 'api_key',
-		array( 
-			'key' => lightgallery_key,
-		)
-	);
-}
+		wp_enqueue_style('furniture_theme_style_lightgallery-plugins', get_template_directory_uri() . '/css/lightgallery-bundle.css', array(), '2024.10.30');
+
+		wp_localize_script(
+			'furniture_theme_lightgallery_settings',
+			'api_key',
+			array(
+				'key' => lightgallery_key,
+			)
+		);
+	}
 
 
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
@@ -249,103 +244,112 @@ function yoast_to_bottom()
 	return 'low';
 }
 
-add_filter( 'wpseo_metabox_prio', 'yoast_to_bottom' );
+add_filter('wpseo_metabox_prio', 'yoast_to_bottom');
 
 
-function my_login_logo_url() {
-    return home_url();
+function my_login_logo_url()
+{
+	return home_url();
 }
-add_filter( 'login_headerurl', 'my_login_logo_url' );
+add_filter('login_headerurl', 'my_login_logo_url');
 
-function my_login_logo_url_title() {
-    return 'Driftwood Design';
+function my_login_logo_url_title()
+{
+	return 'Driftwood Design';
 }
-add_filter( 'login_headertext', 'my_login_logo_url_title' );
+add_filter('login_headertext', 'my_login_logo_url_title');
 
 // Customize the toolbar on the WYSIWYG editor on FAQ
-add_filter( 'acf/fields/wysiwyg/toolbars' , 'my_toolbars'  );
-function my_toolbars( $toolbars )
+add_filter('acf/fields/wysiwyg/toolbars', 'my_toolbars');
+function my_toolbars($toolbars)
 {
-    // Uncomment to view format of $toolbars
-    // echo '< pre >';
-    //     print_r($toolbars);
-    // echo '< /pre >';
-    // die;
+	// Uncomment to view format of $toolbars
+	// echo '< pre >';
+	//     print_r($toolbars);
+	// echo '< /pre >';
+	// die;
 
-    // Add a new toolbar called "Very Simple"
-    // - this toolbar has only 1 row of buttons
-    $toolbars['Very Simple' ] = array();
-    $toolbars['Very Simple' ][1] = array('bold' , 'italic' , 'bullist', 'numlist', 'link' );
+	// Add a new toolbar called "Very Simple"
+	// - this toolbar has only 1 row of buttons
+	$toolbars['Very Simple'] = array();
+	$toolbars['Very Simple'][1] = array('bold', 'italic', 'bullist', 'numlist', 'link');
 
-    // return $toolbars - IMPORTANT!
-    return $toolbars;
+	// return $toolbars - IMPORTANT!
+	return $toolbars;
 }
 
 // Remove default widgets
 
-function wporg_remove_all_dashboard_metaboxes() {
+function wporg_remove_all_dashboard_metaboxes()
+{
 	// Remove Welcome panel
-	remove_action( 'welcome_panel', 'wp_welcome_panel' );
+	remove_action('welcome_panel', 'wp_welcome_panel');
 	// Remove the rest of the dashboard widgets
-	remove_meta_box( 'dashboard_primary', 'dashboard', 'side' );
-	remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' );
-	remove_meta_box( 'health_check_status', 'dashboard', 'normal' );
-	remove_meta_box( 'dashboard_right_now', 'dashboard', 'normal' );
-	remove_meta_box( 'dashboard_activity', 'dashboard', 'normal');
-	remove_meta_box( 'rg_forms_dashboard', 'dashboard', 'normal');
+	remove_meta_box('dashboard_primary', 'dashboard', 'side');
+	remove_meta_box('dashboard_quick_press', 'dashboard', 'side');
+	remove_meta_box('health_check_status', 'dashboard', 'normal');
+	remove_meta_box('dashboard_right_now', 'dashboard', 'normal');
+	remove_meta_box('dashboard_activity', 'dashboard', 'normal');
+	remove_meta_box('rg_forms_dashboard', 'dashboard', 'normal');
 }
-add_action( 'wp_dashboard_setup', 'wporg_remove_all_dashboard_metaboxes' );
+add_action('wp_dashboard_setup', 'wporg_remove_all_dashboard_metaboxes');
 
 /**
  * Add a widget to the dashboard.
  *
  * This function is hooked into the 'wp_dashboard_setup' action below.
  */
-function wporg_add_dashboard_widgets() {
+function wporg_add_dashboard_widgets()
+{
 	wp_add_dashboard_widget(
 		'wporg_dashboard_widget1',                         // Widget slug.
-		esc_html__( 'How to add a Product', 'wporg' ), 	   // Title.
+		esc_html__('How to add a Product', 'wporg'), 	   // Title.
 		'wporg_dashboard_widget_render1'                    // Display function.
-	); 
+	);
 	wp_add_dashboard_widget(
 		'wporg_dashboard_widget2',                         // Widget slug.
-		esc_html__( 'How to add a Variant', 'wporg' ), 	   // Title.
+		esc_html__('How to add a Variant', 'wporg'), 	   // Title.
 		'wporg_dashboard_widget_render2'                    // Display function.
-	); 
+	);
 	wp_add_dashboard_widget(
 		'wporg_dashboard_widget3',                         // Widget slug.
-		esc_html__( 'How to add an FAQ entry', 'wporg' ),  // Title.
+		esc_html__('How to add an FAQ entry', 'wporg'),  // Title.
 		'wporg_dashboard_widget_render3'                    // Display function.
-	); 
+	);
 }
-add_action( 'wp_dashboard_setup', 'wporg_add_dashboard_widgets' );
+add_action('wp_dashboard_setup', 'wporg_add_dashboard_widgets');
 
-function wporg_dashboard_widget_render1() {
+function wporg_dashboard_widget_render1()
+{
 	// Display whatever you want to show.
 	echo '<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1025172096?h=b97141b528&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="How to add a Product"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>';
 }
-function wporg_dashboard_widget_render2() {
+function wporg_dashboard_widget_render2()
+{
 	// Display whatever you want to show.
 	echo '<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1025180417?h=f1e481aae4&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="New Recording - 10/31/2024, 9:43:31 AM"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>';
 }
-function wporg_dashboard_widget_render3() {
+function wporg_dashboard_widget_render3()
+{
 	// Display whatever you want to show.
 	echo '<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1025176316?h=0fd4b1ba8b&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="How to"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>';
 }
 
 // Add Block Editor Styles
 
-function wpdocs_theme_add_editor_styles() {
-	add_editor_style( 'editor-style.css' );
-	add_theme_support( 'editor-styles' );
+function wpdocs_theme_add_editor_styles()
+{
+	add_editor_style('editor-style.css');
+	add_theme_support('editor-styles');
 }
-add_action( 'admin_init', 'wpdocs_theme_add_editor_styles' );
+add_action('admin_init', 'wpdocs_theme_add_editor_styles');
 
 // Remove admin menu links for non-Administrator accounts
-function fwd_remove_admin_links() {
-	if ( !current_user_can( 'manage_options' ) ) {
-		remove_menu_page( 'edit.php' );           // Remove Posts link
-    	remove_menu_page( 'edit-comments.php' );  // Remove Comments link
+function fwd_remove_admin_links()
+{
+	if (!current_user_can('manage_options')) {
+		remove_menu_page('edit.php');           // Remove Posts link
+		remove_menu_page('edit-comments.php');  // Remove Comments link
 	}
 }
-add_action( 'admin_menu', 'fwd_remove_admin_links' );
+add_action('admin_menu', 'fwd_remove_admin_links');

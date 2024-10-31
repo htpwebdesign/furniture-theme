@@ -5,6 +5,16 @@
  * navigation support for dropdown menus.
  */
 ( function() {
+
+//adding extra js to apply toggled to header instead of nav only
+
+	const siteHeader = document.getElementById( 'masthead' );
+
+	// Return early if the header doesn't exist.
+	if ( ! siteHeader ) {
+		return;
+	}
+
 	const siteNavigation = document.getElementById( 'site-navigation' );
 
 	// Return early if the navigation doesn't exist.
@@ -33,7 +43,7 @@
 
 	// Toggle the .toggled class and the aria-expanded value each time the button is clicked.
 	button.addEventListener( 'click', function() {
-		siteNavigation.classList.toggle( 'toggled' );
+		siteHeader.classList.toggle( 'toggled' );
 
 		if ( button.getAttribute( 'aria-expanded' ) === 'true' ) {
 			button.setAttribute( 'aria-expanded', 'false' );
