@@ -153,8 +153,11 @@ function furniture_theme_scripts()
 	//only needed on front page so conditionally rendered
 
 	if (is_front_page()) {
-		wp_enqueue_script('furniture_theme_lightgallery', get_template_directory_uri() . '/js/lightgallery.umd.js', array(), '2024.10.30', array('strategy' => 'defer'));
+		wp_enqueue_script('furniture_theme_lightgallery', get_template_directory_uri() . '/js/lightgallery.min.js', array(), '2024.10.30', array('strategy' => 'defer'));
+
 		wp_enqueue_script('furniture_theme_lightgallery_settings', get_template_directory_uri() . '/js/lightgallery_settings.js', array(), '2024.10.30', array('strategy' => 'defer'));
+
+		wp_enqueue_script('furniture_theme_lightgallery_zoom', get_template_directory_uri() . '/js/lg-zoom.min.js', array(), '2024.10.30', array('strategy' => 'defer'));
 
 		wp_enqueue_style('furniture_theme_style_lightgallery-main', get_template_directory_uri() . '/css/lightgallery.css', array(), '2024.10.30');
 
